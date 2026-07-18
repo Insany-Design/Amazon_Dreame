@@ -96,8 +96,8 @@ img,svg{max-width:100%}
   .cleaning-stats>div[style*="width:1px"]{width:80px!important;height:1px!important}
   .cleaning-media{height:320px!important;margin-top:52px!important;margin-bottom:72px!important}
   #intelligence{padding:64px 20px!important}
-  .intelligence-stage{height:940px!important;border-radius:20px!important}
-  .intelligence-cards{left:20px!important;right:20px!important;top:20px!important;width:auto!important}
+  .intelligence-stage{height:850px!important;border-radius:20px!important}
+  .intelligence-cards{left:20px!important;right:auto!important;top:20px!important;width:calc(100% - 40px)!important;max-width:320px!important}
   .intelligence-copy{left:20px!important;right:20px!important;bottom:26px!important;width:auto!important;align-items:flex-start!important;text-align:left!important}
   .ace-background{height:700px!important}
   .ace-grid{width:calc(100% - 40px)!important}
@@ -380,7 +380,7 @@ img,svg{max-width:100%}
   <div class="intelligence-stage" style="{{ accStageStyle }}">
     <div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(12,12,13,.2) 0%,rgba(12,12,13,0) 48%),linear-gradient(0deg,rgba(12,12,13,.78) 0%,rgba(12,12,13,0) 54%);pointer-events:none"></div>
 
-    <div class="intelligence-cards" style="position:absolute;left:32px;top:32px;width:390px;display:flex;flex-direction:column;gap:12px;z-index:2">
+    <div class="intelligence-cards" style="position:absolute;left:32px;top:32px;width:350px;display:flex;flex-direction:column;gap:10px;z-index:2">
       <sc-for list="{{ accCards }}" as="c" hint-placeholder-count="6">
         <div onClick="{{ c.on }}" style="{{ c.cardStyle }}">
           <div style="{{ c.iconStyle }}">{{ c.icon }}</div>
@@ -677,26 +677,26 @@ class Component extends DCLogic {
       icon: i === st.acc ? '×' : '+',
       on: () => this.setState({ acc: i }),
       cardStyle: {
-        minHeight: '72px', boxSizing: 'border-box',
+        minHeight: '60px', boxSizing: 'border-box',
         background: i === st.acc ? '#fff' : 'rgba(145,147,152,.26)',
         backdropFilter: i === st.acc ? 'none' : 'blur(14px)',
         WebkitBackdropFilter: i === st.acc ? 'none' : 'blur(14px)',
         border: i === st.acc ? '1px solid #fff' : '1px solid rgba(255,255,255,.14)',
-        borderRadius: '18px', padding: '16px 20px', cursor: 'pointer',
+        borderRadius: '14px', padding: '12px 16px', cursor: 'pointer',
         boxShadow: i === st.acc ? '0 14px 38px rgba(0,0,0,.22)' : 'none',
-        display: 'flex', alignItems: 'center', gap: '16px',
+        display: 'flex', alignItems: 'center', gap: '12px',
         transform: 'translateX(0)', transition: 'background .3s ease, box-shadow .3s ease'
       },
       titleStyle: {
-        font: '600 16px Inter,sans-serif',
+        font: '600 15px Inter,sans-serif',
         color: i === st.acc ? '#1d1d1f' : 'rgba(255,255,255,.78)'
       },
       iconStyle: {
-        width: '36px', height: '36px', borderRadius: '50%', flexShrink: 0,
+        width: '32px', height: '32px', borderRadius: '50%', flexShrink: 0,
         background: i === st.acc ? '#1d1d1f' : 'rgba(255,255,255,.12)',
         color: i === st.acc ? '#fff' : 'rgba(255,255,255,.72)',
         display: 'flex', alignItems: 'center', justifyContent: 'center',
-        font: '400 18px Inter,sans-serif'
+        font: '400 16px Inter,sans-serif'
       }
     }));
     const activeCard = cards[st.acc] || cards[0];
