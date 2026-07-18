@@ -41,6 +41,7 @@ img,svg{max-width:100%}
   .ace-grid{width:calc(100% - 80px)!important}
   .precision-container{padding-left:40px!important;padding-right:40px!important}
   .precision-columns{gap:32px!important}
+  .days-sticky{padding-left:40px!important;padding-right:40px!important}
   .package-layout{grid-template-columns:1fr!important}
   .package-hero{position:relative!important;top:auto!important}
   .footer-grid{grid-template-columns:repeat(2,1fr)!important}
@@ -90,7 +91,8 @@ img,svg{max-width:100%}
   .video-tabs>div{min-width:150px;flex:0 0 auto}
   .video-progress{width:100%!important}
   .works-row{gap:36px!important;flex-wrap:wrap;justify-content:center}
-  [data-screen-label="Days Counter"]>div>div{width:calc(100% - 40px)!important;height:56vh!important}
+  .days-sticky{padding-left:20px!important;padding-right:20px!important}
+  .days-stage{height:56vh!important}
   #cleaning{padding-top:84px!important}
   .cleaning-stats{flex-direction:column!important;gap:24px!important}
   .cleaning-stats>div[style*="width:1px"]{width:80px!important;height:1px!important}
@@ -355,8 +357,8 @@ img,svg{max-width:100%}
 </div>
 
 <div data-screen-label="Days Counter" ref="{{ daysRef }}" style="background:#fff;height:260vh;position:relative">
-  <div style="position:sticky;top:0;height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden">
-    <div style="{{ daysImgStyle }}">
+  <div class="days-sticky" style="position:sticky;top:0;height:100vh;padding:0 80px;box-sizing:border-box;display:flex;align-items:center;justify-content:center;overflow:hidden">
+    <div class="days-stage" style="{{ daysImgStyle }}">
       <span style="position:absolute;top:24px;left:24px;font:500 11px ui-monospace,Menlo,monospace;color:#a0a0a5;background:rgba(20,20,22,.85);padding:4px 10px;border-radius:4px">Sequência: dock enchendo de poeira conforme o scroll</span>
       <div style="display:flex;align-items:baseline;gap:12px">
         <span style="font:800 130px/1 Inter,sans-serif;color:#fff">{{ daysCount }}</span>
@@ -720,11 +722,11 @@ class Component extends DCLogic {
       daysRef: this.daysEl,
       daysCount: Math.round(dp * 120),
       daysImgStyle: {
-        position: 'relative', width: '1120px', height: '640px', borderRadius: '16px',
+        position: 'relative', width: '100%', maxWidth: '1280px', height: 'calc(100vh - 80px)', maxHeight: '720px', borderRadius: '16px',
         display: 'flex', alignItems: 'center', justifyContent: 'center',
         background: 'repeating-linear-gradient(45deg,#3a3a3d 0 16px,#434347 16px 32px)',
         border: '1px dashed #55555a', overflow: 'hidden',
-        transform: 'scale(' + (0.72 + 0.28 * dp) + ')'
+        transform: 'scale(' + (0.68 + 0.32 * dp) + ')', transformOrigin: 'center center'
       },
       gridOn: !!(this.props.showGrid ?? false),
       gridCols: Array.from({ length: 12 }, (_, i) => i),
