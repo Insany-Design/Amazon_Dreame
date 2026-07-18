@@ -9,7 +9,129 @@
 <x-dc>
 <helmet>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;family=Sora:wght@500;600;700&amp;display=swap">
-<style>body{margin:0;background:#fff;font-family:Manrope,system-ui,sans-serif;-webkit-font-smoothing:antialiased;min-width:1440px}*{font-family:Manrope,system-ui,sans-serif!important}h1,h2,h3{font-family:Sora,Manrope,sans-serif!important}a{color:inherit;text-decoration:none}a:hover{color:#c79f6c}</style>
+<style>
+html,body{width:100%;max-width:100%;overflow-x:hidden}
+body{margin:0;background:#fff;font-family:Manrope,system-ui,sans-serif;-webkit-font-smoothing:antialiased;min-width:0}
+*{font-family:Manrope,system-ui,sans-serif!important;box-sizing:border-box}
+h1,h2,h3{font-family:Sora,Manrope,sans-serif!important}
+a{color:inherit;text-decoration:none}a:hover{color:#c79f6c}
+img,svg{max-width:100%}
+
+@media (max-width:1100px){
+  .site-header{padding-left:40px!important;padding-right:40px!important}
+  .main-nav{display:none!important}
+  .hero-content{padding-left:40px!important;padding-right:40px!important}
+  .model-tabs{overflow-x:auto;scrollbar-width:none;padding-bottom:8px}
+  .model-tabs::-webkit-scrollbar{display:none}
+  .hero-bottom{flex-direction:column!important;align-items:flex-start!important;gap:36px!important;padding-top:100px}
+  .hero-copy{max-width:760px!important}
+  .hero-copy p{white-space:normal!important}
+  .hero-purchase{width:100%;align-items:flex-start!important}
+  .hero-metrics{width:100%;display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr));text-align:left!important}
+  .hero-metrics>div{align-items:flex-start!important}
+  .hero-buy-area{align-items:flex-start!important;text-align:left!important}
+  section{padding-left:40px!important;padding-right:40px!important}
+  #duobrush .feature-grid{grid-template-columns:repeat(3,1fr)!important;gap:40px 24px!important}
+  .dock-media-grid{grid-template-columns:1fr!important}
+  .product-copy{padding-left:40px!important;padding-right:40px!important}
+  .product-container{padding-left:40px!important;padding-right:40px!important}
+  .video-progress{width:100%!important;max-width:720px}
+  #intelligence{padding:80px 40px!important}
+  .intelligence-copy{left:auto!important;right:32px!important;width:calc(100% - 470px)!important}
+  .ace-grid{width:calc(100% - 80px)!important}
+  .precision-container{padding-left:40px!important;padding-right:40px!important}
+  .precision-columns{gap:32px!important}
+  .package-layout{grid-template-columns:1fr!important}
+  .package-hero{position:relative!important;top:auto!important}
+  .footer-grid{grid-template-columns:repeat(2,1fr)!important}
+  .sticky-buy-inner{padding-left:40px!important;padding-right:40px!important}
+}
+
+@media (max-width:767px){
+  .site-header{height:60px!important;padding-left:20px!important;padding-right:20px!important}
+  .site-header svg{width:96px!important;height:auto!important}
+  .site-header>a:last-child{margin-left:auto!important;padding:7px 16px!important}
+  #overview{min-height:900px!important}
+  .hero-content{padding-left:20px!important;padding-right:20px!important}
+  .model-tabs{padding-top:24px!important;gap:10px!important}
+  .model-tabs>div{flex:0 0 auto}
+  .hero-bottom{gap:28px!important;padding-top:80px;padding-bottom:34px!important}
+  .hero-copy h1{font-size:38px!important;line-height:1.08!important}
+  .hero-copy p{font-size:16px!important}
+  .hero-metrics{gap:14px!important}
+  .hero-metrics>div>span:first-child{font-size:22px!important}
+  .hero-metrics>div>span:last-child{font-size:10px!important}
+  .hero-buy{padding-left:18px!important;gap:12px!important}
+  .hero-buy>span:first-child{font-size:14px!important}
+  .hero-buy>span:last-child{font-size:14px!important;padding:10px 18px!important}
+  section{padding-left:20px!important;padding-right:20px!important}
+  h2{font-size:34px!important;line-height:1.12!important}
+  #duobrush{padding-top:72px!important}
+  #duobrush .feature-grid{grid-template-columns:repeat(2,1fr)!important;gap:36px 18px!important}
+  #duobrush .section-intro{padding-top:72px!important;padding-bottom:52px!important}
+  .dock-media-main{height:440px!important}
+  .dock-media-main .dock-stat-left{left:20px!important;bottom:84px!important}
+  .dock-media-main .dock-stat-right{left:20px!important;right:auto!important;bottom:28px!important;gap:12px!important}
+  .dock-media-main .dock-stat-right{flex-wrap:wrap!important}
+  .dock-media-main .dock-stat-right span{font-size:14px!important}
+  .dock-media-card{height:360px!important}
+  .dock-control{width:calc(100% - 40px)!important}
+  #powerdock{padding-bottom:90px!important}
+  .sticky-product-stage{height:145vh!important}
+  .sticky-product-image{height:100svh!important}
+  .product-copy{height:145vh!important;margin-top:-100svh!important;padding:82svh 20px 0!important}
+  .product-copy h2{font-size:42px!important}
+  .product-pills{flex-wrap:wrap!important;justify-content:center!important}
+  .product-container{padding-left:20px!important;padding-right:20px!important;margin-top:72px!important}
+  .days-card{height:420px!important}
+  .action-video{height:360px!important}
+  .video-tabs{width:100%;gap:28px!important;overflow-x:auto;justify-content:flex-start;padding-bottom:4px;scrollbar-width:none}
+  .video-tabs::-webkit-scrollbar{display:none}
+  .video-tabs>div{min-width:150px;flex:0 0 auto}
+  .video-progress{width:100%!important}
+  .works-row{gap:36px!important;flex-wrap:wrap;justify-content:center}
+  [data-screen-label="Days Counter"]>div>div{width:calc(100% - 40px)!important;height:56vh!important}
+  #cleaning{padding-top:84px!important}
+  .cleaning-stats{flex-direction:column!important;gap:24px!important}
+  .cleaning-stats>div[style*="width:1px"]{width:80px!important;height:1px!important}
+  .cleaning-media{height:320px!important;margin-top:52px!important;margin-bottom:72px!important}
+  #intelligence{padding:64px 20px!important}
+  .intelligence-stage{height:940px!important;border-radius:20px!important}
+  .intelligence-cards{left:20px!important;right:20px!important;top:20px!important;width:auto!important}
+  .intelligence-copy{left:20px!important;right:20px!important;bottom:26px!important;width:auto!important;align-items:flex-start!important;text-align:left!important}
+  .ace-background{height:700px!important}
+  .ace-grid{width:calc(100% - 40px)!important}
+  .ace-copy{width:100%!important;right:0!important;align-items:center!important;text-align:center!important;gap:30px!important}
+  .ace-copy h3{font-size:36px!important}
+  .ace-stats{gap:24px!important;justify-content:center!important;flex-wrap:wrap}
+  .ace-stats>div{align-items:center!important}
+  .precision-container{margin-top:80px!important;padding-left:20px!important;padding-right:20px!important;gap:72px!important}
+  .precision-carousel{gap:14px!important}
+  .precision-container>div:nth-child(2)>div:first-child{flex-direction:column!important;align-items:flex-start!important;gap:20px}
+  .precision-carousel>div:first-child{height:420px!important}
+  .precision-carousel>div:last-child{display:none!important}
+  .precision-columns{grid-template-columns:1fr!important;gap:36px!important}
+  [data-screen-label="Pet Friendly"]{padding-top:84px!important;padding-bottom:84px!important}
+  .pet-heading{flex-direction:column!important;gap:24px!important}
+  .pet-media{height:420px!important}
+  .pet-tabs{grid-template-columns:repeat(3,minmax(150px,1fr))!important;justify-content:start!important;overflow-x:auto;padding-bottom:8px}
+  #specs{padding:72px 20px 110px!important}
+  .package-list{gap:44px!important}
+  .package-hero>div:first-child{height:420px!important}
+  .package-items{grid-template-columns:repeat(2,1fr)!important;gap:24px 14px!important}
+  .package-items>div>div:first-child{height:140px!important}
+  footer{padding:64px 20px 130px!important}
+  .footer-grid{grid-template-columns:1fr!important;gap:42px!important}
+  .footer-legal{align-items:flex-start!important;text-align:left!important}
+  .footer-legal>div:nth-of-type(1){flex-wrap:wrap!important}
+  .footer-signature{position:static!important;align-items:flex-start!important;text-align:left!important}
+  .sticky-buy-bar{min-height:76px!important;height:auto!important}
+  .sticky-buy-inner{padding:10px 20px!important;height:auto!important;gap:12px!important}
+  .sticky-product-name{font-size:12px!important;max-width:140px}
+  .sticky-price-note{display:none!important}
+  .sticky-price{font-size:13px!important}
+}
+</style>
 </helmet>
 
 <sc-if value="{{ gridOn }}" hint-placeholder-val="{{ false }}">
@@ -25,9 +147,9 @@
 <div data-screen-label="Hero" id="overview" style="position:relative;min-height:80vh;background:#232225;overflow:hidden;display:flex;flex-direction:column">
   <div style="position:absolute;inset:0;background:repeating-linear-gradient(45deg,#252427 0 16px,#2c2b2e 16px 32px)"></div>
   <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.55) 0%,rgba(0,0,0,0) 40%,rgba(0,0,0,.45) 100%)"></div>
-  <header style="position:relative;width:100%;max-width:1440px;margin:0 auto;padding:0 80px;height:68px;display:flex;align-items:center;justify-content:space-between;box-sizing:border-box">
+  <header class="site-header" style="position:relative;width:100%;max-width:1440px;margin:0 auto;padding:0 80px;height:68px;display:flex;align-items:center;justify-content:space-between;box-sizing:border-box">
     <a href="#overview" aria-label="Dreame" style="display:flex;align-items:center"><svg width="110" height="14" viewBox="0 0 160 21" fill="none"><path d="M20.2202 10.1104C20.2176 7.43846 19.1586 4.87593 17.2739 2.98193C15.3893 1.08794 12.832 0.01584 10.1602 0H0.339844C0.295194 0 0.251212 0.00879231 0.209961 0.0258789C0.16871 0.0429655 0.131181 0.0680375 0.0996094 0.0996094C0.0680375 0.131181 0.0429655 0.16871 0.0258789 0.209961C0.00879231 0.251212 0 0.295683 0 0.340332V19.8701C0 19.9148 0.00879231 19.9592 0.0258789 20.0005C0.0429655 20.0417 0.0680375 20.0788 0.0996094 20.1104C0.131181 20.1419 0.16871 20.167 0.209961 20.1841C0.251212 20.2012 0.295194 20.21 0.339844 20.21H10.4902C13.1018 20.1068 15.572 18.9984 17.3853 17.1162C19.1985 15.234 20.2145 12.7239 20.2202 10.1104ZM3.87012 3.87012H10.1099C11.764 3.87276 13.3499 4.53103 14.5195 5.70068C15.6892 6.87034 16.3475 8.45621 16.3501 10.1104C16.3475 11.7645 15.6892 13.3499 14.5195 14.5195C13.3499 15.6892 11.764 16.3475 10.1099 16.3501H3.87012V3.87012Z" fill="#fff"/><path d="M44.0815 11.8413C45.3659 11.505 46.5023 10.752 47.313 9.70068C48.1237 8.64933 48.5628 7.35887 48.5615 6.03125C48.5615 4.43995 47.9294 2.91379 46.8042 1.78857C45.679 0.663356 44.1528 0.03125 42.5615 0.03125H29.9316C29.8432 0.033852 29.7594 0.0707948 29.6978 0.134277C29.6361 0.19776 29.6015 0.282626 29.6016 0.371094V19.9009C29.6015 19.9893 29.6361 20.0747 29.6978 20.1382C29.7594 20.2017 29.8432 20.2386 29.9316 20.2412H33.1313C33.2198 20.2386 33.3041 20.2017 33.3657 20.1382C33.4273 20.0747 33.4615 19.9893 33.4614 19.9009V12.0811H39.6816L44.5117 19.9209C44.5715 20.0185 44.6551 20.0993 44.7549 20.1553C44.8547 20.2113 44.9671 20.241 45.0815 20.2412H49.0815C49.1009 20.2398 49.1198 20.2334 49.1362 20.2231C49.1527 20.2129 49.166 20.1988 49.1758 20.1821C49.1856 20.1654 49.1914 20.1468 49.1924 20.1274C49.1933 20.1081 49.1898 20.0889 49.1816 20.0713L44.0815 11.8413ZM33.4517 3.84131H42.5317C43.1046 3.84131 43.654 4.06855 44.0591 4.47363C44.4642 4.87871 44.6914 5.42811 44.6914 6.00098C44.6888 6.57211 44.46 7.11905 44.0552 7.52197C43.6504 7.92489 43.1029 8.15089 42.5317 8.15088H33.4517V3.84131Z" fill="#fff"/><path d="M62.8818 16.3906V12.0908H74.3218C74.4102 12.0882 74.4945 12.0513 74.5562 11.9878C74.6178 11.9243 74.6519 11.839 74.6519 11.7505V8.56055C74.6519 8.47208 74.6178 8.38721 74.5562 8.32373C74.4945 8.26025 74.4102 8.22331 74.3218 8.2207H62.8818V3.91064H75.8818C75.9703 3.90804 76.0546 3.8711 76.1162 3.80762C76.1778 3.74413 76.212 3.65927 76.2119 3.5708V0.390625C76.212 0.302158 76.1778 0.217291 76.1162 0.153809C76.0546 0.0903261 75.9703 0.0533832 75.8818 0.0507812H59.3218C59.2333 0.0533832 59.1495 0.0903261 59.0879 0.153809C59.0263 0.217291 58.9921 0.302158 58.9922 0.390625V19.9204C58.9921 20.0089 59.0263 20.0942 59.0879 20.1577C59.1495 20.2212 59.2333 20.2581 59.3218 20.2607H75.8818C75.9703 20.2581 76.0546 20.2212 76.1162 20.1577C76.1778 20.0942 76.212 20.0089 76.2119 19.9204V16.7505C76.2119 16.7058 76.2031 16.6619 76.186 16.6206C76.1689 16.5794 76.1439 16.5418 76.1123 16.5103C76.0807 16.4787 76.0432 16.4536 76.002 16.4365C75.9607 16.4194 75.9167 16.4106 75.8721 16.4106L62.8818 16.3906Z" fill="#fff"/><path d="M146.554 16.3906V12.0908H157.994C158.039 12.0908 158.083 12.082 158.124 12.0649C158.165 12.0479 158.203 12.0228 158.234 11.9912C158.266 11.9596 158.291 11.9221 158.308 11.8809C158.325 11.8396 158.334 11.7951 158.334 11.7505V8.56055C158.334 8.47037 158.298 8.38407 158.234 8.32031C158.171 8.25655 158.084 8.2207 157.994 8.2207H146.554V3.91064H159.554C159.599 3.91064 159.643 3.90185 159.684 3.88477C159.725 3.86768 159.763 3.84261 159.794 3.81104C159.826 3.77946 159.851 3.74193 159.868 3.70068C159.885 3.65943 159.894 3.61545 159.894 3.5708V0.390625C159.894 0.300451 159.858 0.214153 159.794 0.150391C159.731 0.0866283 159.644 0.0507812 159.554 0.0507812H143.004C142.914 0.0507812 142.827 0.0866283 142.764 0.150391C142.7 0.214153 142.664 0.300451 142.664 0.390625V19.9204C142.664 20.0106 142.7 20.0974 142.764 20.1611C142.827 20.2249 142.914 20.2607 143.004 20.2607H159.554C159.644 20.2607 159.731 20.2249 159.794 20.1611C159.858 20.0974 159.894 20.0106 159.894 19.9204V16.7505C159.894 16.7058 159.885 16.6619 159.868 16.6206C159.851 16.5794 159.826 16.5418 159.794 16.5103C159.763 16.4787 159.725 16.4536 159.684 16.4365C159.643 16.4194 159.599 16.4106 159.554 16.4106L146.554 16.3906Z" fill="#fff"/><path d="M129.902 0.250044L122.902 8.78032L115.902 0.250044C115.841 0.171154 115.762 0.107861 115.672 0.0644972C115.582 0.0211337 115.482 -0.0011288 115.382 4.40601e-05H112.652C112.608 4.40601e-05 112.564 0.00883637 112.522 0.025923C112.481 0.0430096 112.444 0.0680815 112.412 0.0996534C112.381 0.131225 112.355 0.168754 112.338 0.210005C112.321 0.251256 112.313 0.295727 112.312 0.340376V19.8702C112.313 19.9148 112.321 19.9593 112.338 20.0005C112.355 20.0418 112.381 20.0788 112.412 20.1104C112.444 20.142 112.481 20.167 112.522 20.1841C112.564 20.2012 112.608 20.21 112.652 20.21H115.853C115.941 20.2074 116.025 20.1705 116.086 20.107C116.148 20.0435 116.183 19.9586 116.183 19.8702V6.68022L122.672 14.5601C122.704 14.598 122.744 14.6286 122.789 14.6495C122.834 14.6703 122.883 14.6812 122.933 14.6812C122.982 14.6812 123.031 14.6703 123.076 14.6495C123.121 14.6286 123.16 14.598 123.192 14.5601L129.663 6.68022V19.8702C129.663 19.9603 129.698 20.0466 129.762 20.1104C129.826 20.1742 129.912 20.21 130.002 20.21H133.192C133.237 20.21 133.282 20.2012 133.323 20.1841C133.364 20.167 133.402 20.142 133.433 20.1104C133.465 20.0788 133.49 20.0418 133.507 20.0005C133.524 19.9593 133.533 19.9148 133.533 19.8702V0.390181C133.533 0.345531 133.524 0.301549 133.507 0.260298C133.49 0.219047 133.465 0.181518 133.433 0.149946C133.402 0.118374 133.364 0.0933025 133.323 0.0762159C133.282 0.0591293 133.237 0.050337 133.192 0.050337H130.462C130.36 0.0383205 130.256 0.0498263 130.159 0.0845167C130.062 0.119207 129.974 0.175852 129.902 0.250044Z" fill="#fff"/><path d="M95.8599 0.000952343H93.5303C93.4676 0.00190007 93.4065 0.0201576 93.3535 0.0536867C93.3006 0.0872158 93.2576 0.134653 93.23 0.190894L89 8.95115C89.7441 9.45409 90.5858 9.79481 91.4702 9.95115C91.8999 10.0209 92.3348 10.0508 92.77 10.041L94.6899 6.04099L96.1099 8.97117L96.9302 10.6709L98.6299 14.2011L99.6299 16.2011L101.38 19.851C101.437 19.9643 101.524 20.0599 101.632 20.1269C101.739 20.194 101.863 20.2297 101.99 20.2309H105.68C105.699 20.2304 105.718 20.2258 105.734 20.2168C105.751 20.2077 105.765 20.1948 105.776 20.1792C105.787 20.1636 105.793 20.1457 105.796 20.1269C105.798 20.1082 105.796 20.0891 105.79 20.0713L96.2002 0.210913C96.1729 0.144499 96.125 0.0884802 96.064 0.050757C96.0029 0.0130338 95.9314 -0.00441932 95.8599 0.000952343Z" fill="#fff"/><path d="M86.2233 14.7402L85.5432 16.1499L83.6633 20.0503C83.6571 20.0674 83.655 20.0854 83.6569 20.1035C83.6589 20.1216 83.6649 20.1389 83.6745 20.1543C83.6841 20.1697 83.6967 20.1827 83.7121 20.1924C83.7275 20.202 83.7453 20.208 83.7634 20.21H87.4631C87.5889 20.2104 87.7123 20.1752 87.8186 20.1079C87.9249 20.0406 88.0098 19.944 88.0632 19.8301L89.1433 17.5903L89.6833 16.5L89.9231 16C88.633 15.7698 87.3858 15.3452 86.2233 14.7402Z" fill="#fff"/><path d="M96.9316 10.6807C95.4181 11.796 93.5701 12.3636 91.6914 12.2905C91.4814 12.2905 91.2715 12.2905 91.0615 12.2905C89.9486 12.1727 88.8707 11.8327 87.8916 11.2905C87.0619 10.8271 86.3151 10.229 85.6816 9.52051C85.6713 9.50795 85.6583 9.49816 85.6436 9.49121C85.6289 9.48426 85.6129 9.48047 85.5967 9.48047C85.5804 9.48047 85.564 9.48426 85.5493 9.49121C85.5346 9.49816 85.522 9.50795 85.5117 9.52051L83.3115 12.2007C83.2567 12.2628 83.2266 12.3429 83.2266 12.4258C83.2266 12.5086 83.2567 12.5883 83.3115 12.6504C84.1627 13.4941 85.1329 14.2085 86.1914 14.7705C87.3518 15.3675 88.5959 15.7858 89.8813 16.0107C90.1313 16.0107 90.3813 16.0908 90.6313 16.1108C91.0762 16.1621 91.5239 16.1884 91.9717 16.1904C94.3326 16.1847 96.64 15.4896 98.6113 14.1904L96.9316 10.6807Z" fill="#fff"/></svg></a>
-    <nav style="flex:1;display:flex;align-items:center;justify-content:space-between;gap:24px;margin-left:64px">
+    <nav class="main-nav" style="flex:1;display:flex;align-items:center;justify-content:space-between;gap:24px;margin-left:64px">
       <a href="#overview" style="font:400 13px Inter,sans-serif;color:#c9c9cd">Overview</a>
       <a href="#duobrush" style="font:400 13px Inter,sans-serif;color:#c9c9cd">Clear Reach</a>
       <a href="#cleaning" style="font:400 13px Inter,sans-serif;color:#c9c9cd">Powerful Cleaning</a>
@@ -38,8 +160,8 @@
     <a href="#buy" style="margin-left:32px;font:600 13px Inter,sans-serif;color:#1d1d1f;background:#c79f6c;padding:7px 18px;border-radius:99px">Buy</a>
   </header>
 
-  <div style="position:relative;width:100%;max-width:1440px;flex:1;margin:0 auto;padding:0 80px;box-sizing:border-box;display:flex;flex-direction:column">
-    <div style="display:flex;gap:16px;padding-top:44px;flex-wrap:nowrap">
+  <div class="hero-content" style="position:relative;width:100%;max-width:1440px;flex:1;margin:0 auto;padding:0 80px;box-sizing:border-box;display:flex;flex-direction:column">
+    <div class="model-tabs" style="display:flex;gap:16px;padding-top:44px;flex-wrap:nowrap">
       <sc-for list="{{ modelOptions }}" as="m" hint-placeholder-count="3">
         <div onClick="{{ m.on }}" style="{{ m.style }}">
           <div style="width:34px;height:34px;border-radius:8px;border:1px dashed rgba(255,255,255,.3);background:rgba(255,255,255,.06);display:flex;align-items:center;justify-content:center;flex-shrink:0"><span style="font:500 8px ui-monospace,Menlo,monospace;color:rgba(255,255,255,.45)">img</span></div>
@@ -47,13 +169,13 @@
         </div>
       </sc-for>
     </div>
-    <div style="margin-top:auto;padding-bottom:64px;display:flex;align-items:flex-end;justify-content:space-between;gap:64px">
-      <div style="display:flex;flex-direction:column;gap:15px;max-width:720px">
+    <div class="hero-bottom" style="margin-top:auto;padding-bottom:64px;display:flex;align-items:flex-end;justify-content:space-between;gap:64px">
+      <div class="hero-copy" style="display:flex;flex-direction:column;gap:15px;max-width:720px">
         <h1 style="margin:0;font:700 56px/1.1 'Space Grotesk',Inter,sans-serif;color:#fff;text-wrap:balance">Conquer Steps, Clean Without Limits</h1>
         <p style="margin:0;font:400 18px/1.5 Inter,sans-serif;color:rgba(255,255,255,.85);white-space:nowrap">L50 Ultra climbs steps, thresholds, and door tracks other robots can't reach.</p>
       </div>
-      <div style="display:flex;flex-direction:column;align-items:flex-end;gap:28px;flex-shrink:0">
-        <div style="display:flex;flex-direction:column;align-items:flex-end;gap:20px;text-align:right">
+      <div class="hero-purchase" style="display:flex;flex-direction:column;align-items:flex-end;gap:28px;flex-shrink:0">
+        <div class="hero-metrics" style="display:flex;flex-direction:column;align-items:flex-end;gap:20px;text-align:right">
           <div style="display:flex;flex-direction:column;align-items:flex-end;gap:5px">
             <span style="font:700 28px/1 Inter,sans-serif;color:#fff">19,500Pa</span>
             <span style="font:400 11px Inter,sans-serif;color:#99999e">Vormax™ Suction</span>
@@ -67,8 +189,8 @@
             <span style="font:400 11px Inter,sans-serif;color:#99999e">Days Hands-Free</span>
           </div>
         </div>
-        <div style="display:flex;flex-direction:column;align-items:flex-end;gap:8px;text-align:right">
-          <div id="buy" style="display:flex;align-items:center;gap:18px;background:#2f2e31;border-radius:99px;padding:12px 12px 12px 24px">
+        <div class="hero-buy-area" style="display:flex;flex-direction:column;align-items:flex-end;gap:8px;text-align:right">
+          <div class="hero-buy" id="buy" style="display:flex;align-items:center;gap:18px;background:#2f2e31;border-radius:99px;padding:12px 12px 12px 24px">
             <span style="font:600 16px Inter,sans-serif;color:#fff">$949.99 <span style="font:400 13px Inter,sans-serif;color:#b5b5ba;text-decoration:line-through">$1,399.99</span></span>
             <span style="font:500 16px Inter,sans-serif;color:#1d1d1f;background:#c79f6c;padding:12px 22px;border-radius:99px;cursor:pointer">Buy</span>
           </div>
@@ -81,7 +203,7 @@
 
 <section data-screen-label="One Dock" id="duobrush" style="background:#fff;padding:110px 80px 0">
   <div style="max-width:1280px;margin:0 auto">
-    <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:24px">
+    <div class="feature-grid" style="display:grid;grid-template-columns:repeat(6,1fr);gap:24px">
       <div style="display:flex;flex-direction:column;align-items:center;gap:18px">
         <svg width="56" height="56" viewBox="0 0 56 56" fill="none" stroke="#1d1d1f" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 47h11V37h11V27h11V17h7"></path><rect x="11" y="23" width="16" height="8" rx="4"></rect><path d="M15 31v4M23 31v4"></path></svg>
         <span style="font:400 14px/1.45 Inter,sans-serif;color:#1d1d1f;text-align:center;max-width:150px">Innovative ProLeap™ System</span>
@@ -107,30 +229,30 @@
         <span style="font:400 14px/1.45 Inter,sans-serif;color:#1d1d1f;text-align:center;max-width:150px">Intelligent PowerDock™</span>
       </div>
     </div>
-    <div style="padding:96px 0 72px;display:flex;flex-direction:column;align-items:center;gap:22px;text-align:center">
+    <div class="section-intro" style="padding:96px 0 72px;display:flex;flex-direction:column;align-items:center;gap:22px;text-align:center">
       <h2 style="margin:0;font:700 48px/1.1 'Space Grotesk',Inter,sans-serif;color:#1d1d1f;max-width:900px;text-wrap:balance">Automated Post-Cleaning That Saves You Time and Effort</h2>
       <p style="margin:0;font:400 17px/1.6 Inter,sans-serif;color:#55555a;max-width:980px">PowerDock™ uses 20 high-temperature nozzles and 167°F water to wash and dry mop pads, empty dust for up to 100 days, and refill water and solution automatically.</p>
     </div>
   </div>
 </section>
 
-<section style="background:#fff;padding:0 80px 96px">
+<section data-screen-label="Dock Media" style="background:#fff;padding:0 80px 96px">
   <div style="max-width:1280px;margin:0 auto;display:flex;flex-direction:column;gap:24px">
-    <div style="position:relative;height:615px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:repeating-linear-gradient(45deg,#3a3a3d 0 16px,#434347 16px 32px);border:1px dashed #55555a;overflow:hidden">
-      <div style="position:absolute;left:48px;bottom:44px;display:flex;align-items:center;gap:16px">
+    <div class="dock-media-main" style="position:relative;height:615px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:repeating-linear-gradient(45deg,#3a3a3d 0 16px,#434347 16px 32px);border:1px dashed #55555a;overflow:hidden">
+      <div class="dock-stat-left" style="position:absolute;left:48px;bottom:44px;display:flex;align-items:center;gap:16px">
         <svg width="40" height="40" viewBox="0 0 40 40" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round"><circle cx="20" cy="20" r="14"></circle><path d="M20 20c0-6 5-8 9-6M20 20c6 0 8 5 6 9M20 20c0 6-5 8-9 6M20 20c-6 0-8-5-6-9"></path></svg>
         <span style="font:400 17px/1.4 Inter,sans-serif;color:#fff">19,500Pa*<br>Vormax™ Suction</span>
       </div>
-      <div style="position:absolute;right:48px;bottom:56px;display:flex;align-items:center;gap:20px">
+      <div class="dock-stat-right" style="position:absolute;right:48px;bottom:56px;display:flex;align-items:center;gap:20px">
         <span style="font:700 19px Inter,sans-serif;color:#fff">HyperStream™ DuoBrush</span>
         <div style="width:1px;height:24px;background:rgba(255,255,255,.4)"></div>
         <span style="font:700 19px Inter,sans-serif;color:#fff">Zero* Hair-Tangling</span>
       </div>
     </div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px">
+    <div class="dock-media-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:24px">
       <div style="display:flex;flex-direction:column;gap:26px">
-        <div style="position:relative;height:460px;display:flex;align-items:center;justify-content:center;background:repeating-linear-gradient(45deg,#3a3a3d 0 16px,#434347 16px 32px);border:1px dashed #55555a;border-radius:12px;overflow:hidden">
-          <div style="width:401px;display:flex;align-items:center;gap:16px;background:rgba(255,255,255,.16);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.25);border-radius:16px;padding:18px 22px;box-sizing:border-box">
+        <div class="dock-media-card" style="position:relative;height:460px;display:flex;align-items:center;justify-content:center;background:repeating-linear-gradient(45deg,#3a3a3d 0 16px,#434347 16px 32px);border:1px dashed #55555a;border-radius:12px;overflow:hidden">
+          <div class="dock-control" style="width:401px;display:flex;align-items:center;gap:16px;background:rgba(255,255,255,.16);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.25);border-radius:16px;padding:18px 22px;box-sizing:border-box">
             <div style="flex:1;display:flex;flex-direction:column;gap:5px">
               <span style="font:600 16px Inter,sans-serif;color:#fff">Clean Carpets First</span>
               <span style="font:400 13px/1.4 Inter,sans-serif;color:rgba(255,255,255,.75)">Robot will clean carpets first, then other areas.</span>
@@ -141,7 +263,7 @@
         <p style="margin:0;font:700 20px Inter,sans-serif;color:#1d1d1f;text-align:center">One press dust collection.</p>
       </div>
       <div style="display:flex;flex-direction:column;gap:26px">
-        <div style="position:relative;height:460px;display:flex;align-items:center;justify-content:center;background:repeating-linear-gradient(45deg,#3a3a3d 0 16px,#434347 16px 32px);border:1px dashed #55555a;border-radius:12px;overflow:hidden">
+        <div class="dock-media-card" style="position:relative;height:460px;display:flex;align-items:center;justify-content:center;background:repeating-linear-gradient(45deg,#3a3a3d 0 16px,#434347 16px 32px);border:1px dashed #55555a;border-radius:12px;overflow:hidden">
           <div style="width:290px;height:132px;border-radius:99px;display:flex;align-items:center;justify-content:center;background:repeating-linear-gradient(45deg,#57544e 0 16px,#615e57 16px 32px);border:1px dashed #7a766e;overflow:hidden">
             <div style="width:48px;height:48px;border-radius:50%;background:rgba(20,20,22,.75);display:flex;align-items:center;justify-content:center"><span style="color:#fff;font-size:15px;margin-left:3px">▶</span></div>
           </div>
@@ -153,15 +275,15 @@
 </section>
 
 <div data-screen-label="Product Details" id="powerdock" style="background:#0c0c0d;padding-bottom:130px">
-  <div style="position:relative;height:170vh">
-    <div style="position:sticky;top:0;height:100vh;display:flex;align-items:center;justify-content:center;background:repeating-linear-gradient(45deg,#1d1d20 0 16px,#252528 16px 32px);overflow:hidden">
+  <div class="sticky-product-stage" style="position:relative;height:170vh">
+    <div class="sticky-product-image" style="position:sticky;top:0;height:100vh;display:flex;align-items:center;justify-content:center;background:repeating-linear-gradient(45deg,#1d1d20 0 16px,#252528 16px 32px);overflow:hidden">
       <div style="position:absolute;inset:0;background:linear-gradient(180deg,#0c0c0d 0%,rgba(12,12,13,0) 30%,rgba(12,12,13,0) 60%,#0c0c0d 100%)"></div>
     </div>
-    <div style="position:relative;z-index:1;height:170vh;margin-top:-100vh;padding:92vh 80px 0;box-sizing:border-box;pointer-events:none">
+    <div class="product-copy" style="position:relative;z-index:1;height:170vh;margin-top:-100vh;padding:92vh 80px 0;box-sizing:border-box;pointer-events:none">
       <div style="max-width:1280px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:34px;text-align:center">
         <span style="font:500 14px ui-monospace,Menlo,monospace;color:#c79f6c;letter-spacing:1px">[ Product Details ]</span>
         <h2 style="margin:0;font:700 64px/1.08 'Space Grotesk',Inter,sans-serif;color:#efe9dd;max-width:900px;text-wrap:balance">Unlimited Cleaning Possibilities</h2>
-        <div style="display:flex;gap:12px">
+        <div class="product-pills" style="display:flex;gap:12px">
           <span style="font:600 12px Inter,sans-serif;letter-spacing:1px;color:#c79f6c;border:1px solid #4a463d;border-radius:99px;padding:8px 18px">19,500PA</span>
           <span style="font:600 12px Inter,sans-serif;letter-spacing:1px;color:#c79f6c;border:1px solid #4a463d;border-radius:99px;padding:8px 18px">ROBOT VACUUM &amp; MOP</span>
           <span style="font:600 12px Inter,sans-serif;letter-spacing:1px;color:#c79f6c;border:1px solid #4a463d;border-radius:99px;padding:8px 18px">100 DAYS</span>
@@ -169,22 +291,22 @@
       </div>
     </div>
   </div>
-  <div style="max-width:1280px;margin:96px auto 0;padding:0 80px;box-sizing:border-box">
-    <div style="position:relative;height:640px;border-radius:24px;display:flex;align-items:center;justify-content:center;background:repeating-linear-gradient(45deg,#1d1d20 0 16px,#252528 16px 32px);border:1px dashed #45454a;overflow:hidden">
+  <div class="product-container" style="max-width:1280px;margin:96px auto 0;padding:0 80px;box-sizing:border-box">
+    <div class="days-card" style="position:relative;height:640px;border-radius:24px;display:flex;align-items:center;justify-content:center;background:repeating-linear-gradient(45deg,#1d1d20 0 16px,#252528 16px 32px);border:1px dashed #45454a;overflow:hidden">
       <div style="display:flex;flex-direction:column;align-items:center;gap:14px">
         <div style="display:flex;align-items:baseline;gap:12px"><span style="font:800 72px/1 Inter,sans-serif;color:#fff">100</span><span style="font:500 26px Inter,sans-serif;color:#d5d5da">Days</span></div>
       </div>
     </div>
   </div>
-  <div style="max-width:1280px;margin:120px auto 0;padding:0 80px;box-sizing:border-box;display:flex;flex-direction:column;gap:56px">
+  <div class="product-container" style="max-width:1280px;margin:120px auto 0;padding:0 80px;box-sizing:border-box;display:flex;flex-direction:column;gap:56px">
     <div style="display:flex;flex-direction:column;align-items:center;gap:18px;text-align:center">
       <h3 style="margin:0;font:700 40px/1.15 'Space Grotesk',Inter,sans-serif;color:#fff">See It in Action</h3>
     </div>
-    <div style="position:relative;height:560px;border-radius:16px;display:flex;align-items:center;justify-content:center;background:repeating-linear-gradient(45deg,#1d1d20 0 16px,#252528 16px 32px);border:1px dashed #45454a">
+    <div class="action-video" style="position:relative;height:560px;border-radius:16px;display:flex;align-items:center;justify-content:center;background:repeating-linear-gradient(45deg,#1d1d20 0 16px,#252528 16px 32px);border:1px dashed #45454a">
       <span style="font:500 11px ui-monospace,Menlo,monospace;color:#a0a0a5;background:rgba(20,20,22,.85);padding:5px 12px;border-radius:4px">Vídeo: {{ videoLabel }}</span>
     </div>
     <div style="display:flex;flex-direction:column;gap:36px;align-items:center">
-      <div style="display:flex;gap:56px">
+      <div class="video-tabs" style="display:flex;gap:56px">
         <div onClick="{{ vt0.on }}" style="{{ vt0.wrap }}">
           <svg width="32" height="32" viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 47h11V37h11V27h11V17h7"></path><rect x="11" y="23" width="16" height="8" rx="4"></rect><path d="M15 31v4M23 31v4"></path></svg>
           <span style="{{ vt0.style }}">Threshold Climbing</span>
@@ -198,7 +320,7 @@
           <span style="{{ vt2.style }}">Dual Flex Arm Reach</span>
         </div>
       </div>
-      <div style="position:relative;width:720px;height:4px;background:rgba(255,255,255,.16);border-radius:99px;overflow:hidden">
+      <div class="video-progress" style="position:relative;width:720px;height:4px;background:rgba(255,255,255,.16);border-radius:99px;overflow:hidden">
         <div style="{{ videoProgressStyle }}"></div>
         <div style="position:absolute;inset:0;display:grid;grid-template-columns:repeat(3,1fr)">
           <div onClick="{{ vt0.on }}" style="cursor:pointer"></div>
@@ -209,9 +331,9 @@
       <p style="margin:0;font:400 17px/1.7 Inter,sans-serif;color:#b9b9be;max-width:900px;text-align:center">{{ videoDesc }}</p>
     </div>
   </div>
-  <div style="max-width:1280px;margin:120px auto 0;padding:0 80px;box-sizing:border-box;display:flex;flex-direction:column;align-items:center;gap:36px">
+  <div class="product-container" style="max-width:1280px;margin:120px auto 0;padding:0 80px;box-sizing:border-box;display:flex;flex-direction:column;align-items:center;gap:36px">
     <span style="font:400 13px Inter,sans-serif;color:#8a8a8f">Works with</span>
-    <div style="display:flex;gap:120px">
+    <div class="works-row" style="display:flex;gap:120px">
       <div style="display:flex;flex-direction:column;align-items:center;gap:14px">
         <img src="assets/logo-alexa.webp" alt="Amazon Alexa" style="width:48px;height:48px;border-radius:12px;object-fit:contain">
         <span style="font:400 13px Inter,sans-serif;color:#c9c9cd">Amazon Alexa</span>
@@ -244,21 +366,21 @@
   <div style="max-width:1280px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:26px;text-align:center">
     <h2 style="margin:0;font:700 48px/1.1 'Space Grotesk',Inter,sans-serif;color:#1d1d1f">Efficient Yet Effortless Sweeping</h2>
     <p style="margin:0;font:400 17px/1.6 Inter,sans-serif;color:#55555a;max-width:900px">L50 Ultra's 19,500Pa* high-power suction captures dirt, hair, and dust from hard floors and carpets, smoothly gliding over surfaces and conquering tiny and large debris.</p>
-    <div style="display:flex;align-items:center;gap:64px;padding-top:26px">
+    <div class="cleaning-stats" style="display:flex;align-items:center;gap:64px;padding-top:26px">
       <div style="display:flex;align-items:baseline;gap:14px"><span style="font:700 44px/1 Inter,sans-serif;color:#c79f6c">Zero*</span><span style="font:400 18px Inter,sans-serif;color:#77777c">Hair-Tangling</span></div>
       <div style="width:1px;height:44px;background:#d5cfc0"></div>
       <div style="display:flex;align-items:baseline;gap:14px"><span style="font:700 44px/1 Inter,sans-serif;color:#c79f6c">11.81in*</span><span style="font:400 18px Inter,sans-serif;color:#77777c">Hair Length Handled</span></div>
     </div>
   </div>
-  <div style="max-width:1280px;margin:72px auto 96px;height:420px;display:flex;align-items:center;justify-content:center;background:repeating-linear-gradient(45deg,#f2efe8 0 16px,#e9e5dc 16px 32px);border:1px dashed #c9c9c4;border-radius:12px">
+  <div class="cleaning-media" style="max-width:1280px;margin:72px auto 96px;height:420px;display:flex;align-items:center;justify-content:center;background:repeating-linear-gradient(45deg,#f2efe8 0 16px,#e9e5dc 16px 32px);border:1px dashed #c9c9c4;border-radius:12px">
   </div>
 </section>
 
 <section data-screen-label="Intelligence" id="intelligence" style="background:#f4f2ee;padding:110px 80px">
-  <div style="{{ accStageStyle }}">
+  <div class="intelligence-stage" style="{{ accStageStyle }}">
     <div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(12,12,13,.2) 0%,rgba(12,12,13,0) 48%),linear-gradient(0deg,rgba(12,12,13,.78) 0%,rgba(12,12,13,0) 54%);pointer-events:none"></div>
 
-    <div style="position:absolute;left:32px;top:32px;width:390px;display:flex;flex-direction:column;gap:12px;z-index:2">
+    <div class="intelligence-cards" style="position:absolute;left:32px;top:32px;width:390px;display:flex;flex-direction:column;gap:12px;z-index:2">
       <sc-for list="{{ accCards }}" as="c" hint-placeholder-count="6">
         <div onClick="{{ c.on }}" style="{{ c.cardStyle }}">
           <div style="{{ c.iconStyle }}">{{ c.icon }}</div>
@@ -267,7 +389,7 @@
       </sc-for>
     </div>
 
-    <div style="position:absolute;right:42px;bottom:38px;width:620px;display:flex;flex-direction:column;align-items:flex-end;gap:12px;text-align:right;z-index:2">
+    <div class="intelligence-copy" style="position:absolute;right:42px;bottom:38px;width:620px;display:flex;flex-direction:column;align-items:flex-end;gap:12px;text-align:right;z-index:2">
       <span style="font:600 12px ui-monospace,Menlo,monospace;letter-spacing:1.2px;text-transform:uppercase;color:rgba(255,255,255,.72)">Dreamehome Intelligence</span>
       <h3 style="margin:0;font:700 32px/1.15 'Space Grotesk',Inter,sans-serif;color:#fff">{{ accTitle }}</h3>
       <p style="margin:0;font:400 16px/1.55 Inter,sans-serif;color:rgba(255,255,255,.84);max-width:600px">{{ accDesc }}</p>
@@ -276,11 +398,11 @@
 </section>
 
 <div data-screen-label="Precision Cleaning" style="background:#000;padding:0 0 130px">
-  <div style="position:relative;width:100%;height:806px;overflow:hidden;background:#6a6c70">
-    <div style="position:relative;width:calc(100% - 160px);max-width:1280px;height:100%;margin:0 auto">
-      <div style="position:absolute;right:0;top:50%;transform:translateY(-50%);width:54%;display:flex;flex-direction:column;align-items:flex-end;gap:38px;text-align:right">
+  <div class="ace-background" style="position:relative;width:100%;height:806px;overflow:hidden;background:#6a6c70">
+    <div class="ace-grid" style="position:relative;width:calc(100% - 160px);max-width:1280px;height:100%;margin:0 auto">
+      <div class="ace-copy" style="position:absolute;right:0;top:50%;transform:translateY(-50%);width:54%;display:flex;flex-direction:column;align-items:flex-end;gap:38px;text-align:right">
         <h3 style="margin:0;font:700 48px/1.12 'Space Grotesk',Inter,sans-serif;color:#c79f6c;text-wrap:balance">AceClean™ DryBoard Locks Out Dirt and Odors</h3>
-        <div style="display:flex;align-items:flex-start;justify-content:flex-end;gap:46px">
+        <div class="ace-stats" style="display:flex;align-items:flex-start;justify-content:flex-end;gap:46px">
           <div style="display:flex;flex-direction:column;align-items:flex-end;gap:8px"><span style="font:500 28px Inter,sans-serif;color:#fff">167°F*</span><span style="font:400 12px/1.45 Inter,sans-serif;color:#b5b5ba">Hot-Water<br>Mop Washing</span></div>
           <div style="display:flex;flex-direction:column;align-items:flex-end;gap:8px"><span style="font:500 28px Inter,sans-serif;color:#fff">3.2L</span><span style="font:400 12px/1.45 Inter,sans-serif;color:#b5b5ba">Auto-Empty<br>Dust Bag</span></div>
           <div style="display:flex;flex-direction:column;align-items:flex-end;gap:8px"><span style="font:500 28px Inter,sans-serif;color:#fff">100*</span><span style="font:400 12px/1.45 Inter,sans-serif;color:#b5b5ba">Days Without<br>Emptying</span></div>
@@ -292,7 +414,7 @@
       </div>
     </div>
   </div>
-  <div style="max-width:1280px;margin:120px auto 0;padding:0 80px;box-sizing:border-box;display:flex;flex-direction:column;gap:120px">
+  <div class="precision-container" style="max-width:1280px;margin:120px auto 0;padding:0 80px;box-sizing:border-box;display:flex;flex-direction:column;gap:120px">
     <div style="display:flex;flex-direction:column;align-items:center;gap:24px;text-align:center">
       <h2 style="margin:0;font:700 56px/1.1 'Space Grotesk',Inter,sans-serif;color:#fff">Precision Cleaning Solution</h2>
       <p style="margin:0;font:400 18px/1.6 Inter,sans-serif;color:#c9c9cd;max-width:980px">Extendable side brush and mop reach tight corners, narrow gaps, and areas under low-profile furniture, ensuring a 100%* clean of hidden debris.</p>
@@ -306,13 +428,13 @@
           <div onClick="{{ nextSlide }}" style="width:40px;height:40px;border-radius:50%;background:#fff;color:#0c0c0d;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:15px">›</div>
         </div>
       </div>
-      <div style="display:flex;gap:24px">
+      <div class="precision-carousel" style="display:flex;gap:24px">
         <div style="flex:1;height:600px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:repeating-linear-gradient(45deg,#1d1d20 0 16px,#252528 16px 32px);border:1px dashed #45454a">
         </div>
         <div style="width:180px;height:600px;border-radius:12px;background:repeating-linear-gradient(45deg,#161618 0 16px,#1d1d20 16px 32px);border:1px dashed #333338;flex-shrink:0"></div>
       </div>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:56px">
+    <div class="precision-columns" style="display:grid;grid-template-columns:repeat(3,1fr);gap:56px">
       <div style="display:flex;flex-direction:column;gap:0">
         <span style="font:700 17px Inter,sans-serif;color:#fff;padding-bottom:22px">Glide Under, Clean Over</span>
         <div style="height:1px;background:#3a3a3f"></div>
@@ -334,13 +456,13 @@
 
 <section data-screen-label="Pet Friendly" style="background:#fff;padding:120px 80px">
   <div style="max-width:1280px;margin:0 auto;display:flex;flex-direction:column;gap:56px">
-    <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:64px">
+    <div class="pet-heading" style="display:flex;align-items:flex-start;justify-content:space-between;gap:64px">
       <h2 style="margin:0;font:700 48px/1.1 'Space Grotesk',Inter,sans-serif;color:#1d1d1f">Tailored Pet Safety</h2>
       <p style="margin:0;font:400 17px/1.6 Inter,sans-serif;color:#55555a;max-width:520px">Identify and avoid people and pets with Dynamic Spot-Cleaning, fostering a healthier, happier, and safer environment for your furry friends.</p>
     </div>
-    <div style="height:660px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:repeating-linear-gradient(45deg,#f5f5f3 0 16px,#ecece9 16px 32px);border:1px dashed #c9c9c4">
+    <div class="pet-media" style="height:660px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:repeating-linear-gradient(45deg,#f5f5f3 0 16px,#ecece9 16px 32px);border:1px dashed #c9c9c4">
     </div>
-    <div style="width:100%;display:grid;grid-template-columns:repeat(3,minmax(0,240px));justify-content:center;gap:12px;text-align:center">
+    <div class="pet-tabs" style="width:100%;display:grid;grid-template-columns:repeat(3,minmax(0,240px));justify-content:center;gap:12px;text-align:center">
       <sc-for list="{{ petTabs }}" as="t" hint-placeholder-count="3">
         <div onClick="{{ t.on }}" style="display:flex;flex-direction:column;gap:18px;padding:0 8px;cursor:pointer">
           <span style="{{ t.style }}">{{ t.label }}</span>
@@ -352,15 +474,15 @@
 </section>
 
 <section data-screen-label="Package List" id="specs" style="background:#fff;padding:40px 80px 140px">
-  <div style="max-width:1280px;margin:0 auto;display:flex;flex-direction:column;gap:64px">
+  <div class="package-list" style="max-width:1280px;margin:0 auto;display:flex;flex-direction:column;gap:64px">
     <h2 style="margin:0;font:700 44px/1.1 'Space Grotesk',Inter,sans-serif;color:#1d1d1f;text-align:center">Package List</h2>
-    <div style="display:grid;grid-template-columns:640px 1fr;gap:24px;align-items:start">
-      <div style="position:sticky;top:32px;align-self:start;display:flex;flex-direction:column;gap:28px">
+    <div class="package-layout" style="display:grid;grid-template-columns:640px 1fr;gap:24px;align-items:start">
+      <div class="package-hero" style="position:sticky;top:32px;align-self:start;display:flex;flex-direction:column;gap:28px">
         <div style="height:660px;display:flex;align-items:center;justify-content:center;background:repeating-linear-gradient(45deg,#f7f7f5 0 16px,#efefec 16px 32px);border:1px dashed #c9c9c4;border-radius:8px">
         </div>
         <span style="font:500 16px Inter,sans-serif;color:#1d1d1f">L50 Ultra</span>
       </div>
-      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px 20px">
+      <div class="package-items" style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px 20px">
         <sc-for list="{{ packageItems }}" as="p" hint-placeholder-count="9">
           <div style="display:flex;flex-direction:column;gap:12px">
             <div style="height:200px;display:flex;align-items:center;justify-content:center;background:#f6f6f4;border:1px dashed #d5d5d0;border-radius:6px">
@@ -378,7 +500,7 @@
 <footer data-screen-label="Footer" style="background:#232426;padding:90px 80px 150px">
   <div style="max-width:1280px;margin:0 auto;display:flex;flex-direction:column;gap:72px">
     <svg width="150" height="20" viewBox="0 0 160 21" fill="none"><path d="M20.2202 10.1104C20.2176 7.43846 19.1586 4.87593 17.2739 2.98193C15.3893 1.08794 12.832 0.01584 10.1602 0H0.339844C0.295194 0 0.251212 0.00879231 0.209961 0.0258789C0.16871 0.0429655 0.131181 0.0680375 0.0996094 0.0996094C0.0680375 0.131181 0.0429655 0.16871 0.0258789 0.209961C0.00879231 0.251212 0 0.295683 0 0.340332V19.8701C0 19.9148 0.00879231 19.9592 0.0258789 20.0005C0.0429655 20.0417 0.0680375 20.0788 0.0996094 20.1104C0.131181 20.1419 0.16871 20.167 0.209961 20.1841C0.251212 20.2012 0.295194 20.21 0.339844 20.21H10.4902C13.1018 20.1068 15.572 18.9984 17.3853 17.1162C19.1985 15.234 20.2145 12.7239 20.2202 10.1104ZM3.87012 3.87012H10.1099C11.764 3.87276 13.3499 4.53103 14.5195 5.70068C15.6892 6.87034 16.3475 8.45621 16.3501 10.1104C16.3475 11.7645 15.6892 13.3499 14.5195 14.5195C13.3499 15.6892 11.764 16.3475 10.1099 16.3501H3.87012V3.87012Z" fill="#fff"/><path d="M44.0815 11.8413C45.3659 11.505 46.5023 10.752 47.313 9.70068C48.1237 8.64933 48.5628 7.35887 48.5615 6.03125C48.5615 4.43995 47.9294 2.91379 46.8042 1.78857C45.679 0.663356 44.1528 0.03125 42.5615 0.03125H29.9316C29.8432 0.033852 29.7594 0.0707948 29.6978 0.134277C29.6361 0.19776 29.6015 0.282626 29.6016 0.371094V19.9009C29.6015 19.9893 29.6361 20.0747 29.6978 20.1382C29.7594 20.2017 29.8432 20.2386 29.9316 20.2412H33.1313C33.2198 20.2386 33.3041 20.2017 33.3657 20.1382C33.4273 20.0747 33.4615 19.9893 33.4614 19.9009V12.0811H39.6816L44.5117 19.9209C44.5715 20.0185 44.6551 20.0993 44.7549 20.1553C44.8547 20.2113 44.9671 20.241 45.0815 20.2412H49.0815C49.1009 20.2398 49.1198 20.2334 49.1362 20.2231C49.1527 20.2129 49.166 20.1988 49.1758 20.1821C49.1856 20.1654 49.1914 20.1468 49.1924 20.1274C49.1933 20.1081 49.1898 20.0889 49.1816 20.0713L44.0815 11.8413ZM33.4517 3.84131H42.5317C43.1046 3.84131 43.654 4.06855 44.0591 4.47363C44.4642 4.87871 44.6914 5.42811 44.6914 6.00098C44.6888 6.57211 44.46 7.11905 44.0552 7.52197C43.6504 7.92489 43.1029 8.15089 42.5317 8.15088H33.4517V3.84131Z" fill="#fff"/><path d="M62.8818 16.3906V12.0908H74.3218C74.4102 12.0882 74.4945 12.0513 74.5562 11.9878C74.6178 11.9243 74.6519 11.839 74.6519 11.7505V8.56055C74.6519 8.47208 74.6178 8.38721 74.5562 8.32373C74.4945 8.26025 74.4102 8.22331 74.3218 8.2207H62.8818V3.91064H75.8818C75.9703 3.90804 76.0546 3.8711 76.1162 3.80762C76.1778 3.74413 76.212 3.65927 76.2119 3.5708V0.390625C76.212 0.302158 76.1778 0.217291 76.1162 0.153809C76.0546 0.0903261 75.9703 0.0533832 75.8818 0.0507812H59.3218C59.2333 0.0533832 59.1495 0.0903261 59.0879 0.153809C59.0263 0.217291 58.9921 0.302158 58.9922 0.390625V19.9204C58.9921 20.0089 59.0263 20.0942 59.0879 20.1577C59.1495 20.2212 59.2333 20.2581 59.3218 20.2607H75.8818C75.9703 20.2581 76.0546 20.2212 76.1162 20.1577C76.1778 20.0942 76.212 20.0089 76.2119 19.9204V16.7505C76.2119 16.7058 76.2031 16.6619 76.186 16.6206C76.1689 16.5794 76.1439 16.5418 76.1123 16.5103C76.0807 16.4787 76.0432 16.4536 76.002 16.4365C75.9607 16.4194 75.9167 16.4106 75.8721 16.4106L62.8818 16.3906Z" fill="#fff"/><path d="M146.554 16.3906V12.0908H157.994C158.039 12.0908 158.083 12.082 158.124 12.0649C158.165 12.0479 158.203 12.0228 158.234 11.9912C158.266 11.9596 158.291 11.9221 158.308 11.8809C158.325 11.8396 158.334 11.7951 158.334 11.7505V8.56055C158.334 8.47037 158.298 8.38407 158.234 8.32031C158.171 8.25655 158.084 8.2207 157.994 8.2207H146.554V3.91064H159.554C159.599 3.91064 159.643 3.90185 159.684 3.88477C159.725 3.86768 159.763 3.84261 159.794 3.81104C159.826 3.77946 159.851 3.74193 159.868 3.70068C159.885 3.65943 159.894 3.61545 159.894 3.5708V0.390625C159.894 0.300451 159.858 0.214153 159.794 0.150391C159.731 0.0866283 159.644 0.0507812 159.554 0.0507812H143.004C142.914 0.0507812 142.827 0.0866283 142.764 0.150391C142.7 0.214153 142.664 0.300451 142.664 0.390625V19.9204C142.664 20.0106 142.7 20.0974 142.764 20.1611C142.827 20.2249 142.914 20.2607 143.004 20.2607H159.554C159.644 20.2607 159.731 20.2249 159.794 20.1611C159.858 20.0974 159.894 20.0106 159.894 19.9204V16.7505C159.894 16.7058 159.885 16.6619 159.868 16.6206C159.851 16.5794 159.826 16.5418 159.794 16.5103C159.763 16.4787 159.725 16.4536 159.684 16.4365C159.643 16.4194 159.599 16.4106 159.554 16.4106L146.554 16.3906Z" fill="#fff"/><path d="M129.902 0.250044L122.902 8.78032L115.902 0.250044C115.841 0.171154 115.762 0.107861 115.672 0.0644972C115.582 0.0211337 115.482 -0.0011288 115.382 4.40601e-05H112.652C112.608 4.40601e-05 112.564 0.00883637 112.522 0.025923C112.481 0.0430096 112.444 0.0680815 112.412 0.0996534C112.381 0.131225 112.355 0.168754 112.338 0.210005C112.321 0.251256 112.313 0.295727 112.312 0.340376V19.8702C112.313 19.9148 112.321 19.9593 112.338 20.0005C112.355 20.0418 112.381 20.0788 112.412 20.1104C112.444 20.142 112.481 20.167 112.522 20.1841C112.564 20.2012 112.608 20.21 112.652 20.21H115.853C115.941 20.2074 116.025 20.1705 116.086 20.107C116.148 20.0435 116.183 19.9586 116.183 19.8702V6.68022L122.672 14.5601C122.704 14.598 122.744 14.6286 122.789 14.6495C122.834 14.6703 122.883 14.6812 122.933 14.6812C122.982 14.6812 123.031 14.6703 123.076 14.6495C123.121 14.6286 123.16 14.598 123.192 14.5601L129.663 6.68022V19.8702C129.663 19.9603 129.698 20.0466 129.762 20.1104C129.826 20.1742 129.912 20.21 130.002 20.21H133.192C133.237 20.21 133.282 20.2012 133.323 20.1841C133.364 20.167 133.402 20.142 133.433 20.1104C133.465 20.0788 133.49 20.0418 133.507 20.0005C133.524 19.9593 133.533 19.9148 133.533 19.8702V0.390181C133.533 0.345531 133.524 0.301549 133.507 0.260298C133.49 0.219047 133.465 0.181518 133.433 0.149946C133.402 0.118374 133.364 0.0933025 133.323 0.0762159C133.282 0.0591293 133.237 0.050337 133.192 0.050337H130.462C130.36 0.0383205 130.256 0.0498263 130.159 0.0845167C130.062 0.119207 129.974 0.175852 129.902 0.250044Z" fill="#fff"/><path d="M95.8599 0.000952343H93.5303C93.4676 0.00190007 93.4065 0.0201576 93.3535 0.0536867C93.3006 0.0872158 93.2576 0.134653 93.23 0.190894L89 8.95115C89.7441 9.45409 90.5858 9.79481 91.4702 9.95115C91.8999 10.0209 92.3348 10.0508 92.77 10.041L94.6899 6.04099L96.1099 8.97117L96.9302 10.6709L98.6299 14.2011L99.6299 16.2011L101.38 19.851C101.437 19.9643 101.524 20.0599 101.632 20.1269C101.739 20.194 101.863 20.2297 101.99 20.2309H105.68C105.699 20.2304 105.718 20.2258 105.734 20.2168C105.751 20.2077 105.765 20.1948 105.776 20.1792C105.787 20.1636 105.793 20.1457 105.796 20.1269C105.798 20.1082 105.796 20.0891 105.79 20.0713L96.2002 0.210913C96.1729 0.144499 96.125 0.0884802 96.064 0.050757C96.0029 0.0130338 95.9314 -0.00441932 95.8599 0.000952343Z" fill="#fff"/><path d="M86.2233 14.7402L85.5432 16.1499L83.6633 20.0503C83.6571 20.0674 83.655 20.0854 83.6569 20.1035C83.6589 20.1216 83.6649 20.1389 83.6745 20.1543C83.6841 20.1697 83.6967 20.1827 83.7121 20.1924C83.7275 20.202 83.7453 20.208 83.7634 20.21H87.4631C87.5889 20.2104 87.7123 20.1752 87.8186 20.1079C87.9249 20.0406 88.0098 19.944 88.0632 19.8301L89.1433 17.5903L89.6833 16.5L89.9231 16C88.633 15.7698 87.3858 15.3452 86.2233 14.7402Z" fill="#fff"/><path d="M96.9316 10.6807C95.4181 11.796 93.5701 12.3636 91.6914 12.2905C91.4814 12.2905 91.2715 12.2905 91.0615 12.2905C89.9486 12.1727 88.8707 11.8327 87.8916 11.2905C87.0619 10.8271 86.3151 10.229 85.6816 9.52051C85.6713 9.50795 85.6583 9.49816 85.6436 9.49121C85.6289 9.48426 85.6129 9.48047 85.5967 9.48047C85.5804 9.48047 85.564 9.48426 85.5493 9.49121C85.5346 9.49816 85.522 9.50795 85.5117 9.52051L83.3115 12.2007C83.2567 12.2628 83.2266 12.3429 83.2266 12.4258C83.2266 12.5086 83.2567 12.5883 83.3115 12.6504C84.1627 13.4941 85.1329 14.2085 86.1914 14.7705C87.3518 15.3675 88.5959 15.7858 89.8813 16.0107C90.1313 16.0107 90.3813 16.0908 90.6313 16.1108C91.0762 16.1621 91.5239 16.1884 91.9717 16.1904C94.3326 16.1847 96.64 15.4896 98.6113 14.1904L96.9316 10.6807Z" fill="#fff"/></svg>
-    <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1.4fr;gap:48px">
+    <div class="footer-grid" style="display:grid;grid-template-columns:1fr 1fr 1fr 1.4fr;gap:48px">
       <div style="display:flex;flex-direction:column;gap:24px">
         <span style="font:600 15px Inter,sans-serif;color:#fff">Products</span>
         <a href="#overview" style="font:400 14px Inter,sans-serif;color:#a5a5aa">Robotic Pool Cleaners</a>
@@ -421,7 +543,7 @@
         <span style="font:400 13px/1.6 Inter,sans-serif;color:#a5a5aa">Customer Service: +1 (866) 977-5177<br>support.na@dreame.tech</span>
       </div>
     </div>
-    <div style="position:relative;width:100%;box-sizing:border-box;display:flex;flex-direction:column;align-items:flex-start;gap:26px;border-top:1px solid #37383b;padding-top:44px;text-align:left">
+    <div class="footer-legal" style="position:relative;width:100%;box-sizing:border-box;display:flex;flex-direction:column;align-items:flex-start;gap:26px;border-top:1px solid #37383b;padding-top:44px;text-align:left">
       <span style="font:400 14px Inter,sans-serif;color:#a5a5aa">©2026 Dreame. All Rights Reserved</span>
       <div style="display:flex;align-items:center;gap:20px">
         <a href="#overview" style="font:400 13px Inter,sans-serif;color:#c9c9cd">Privacy Policy</a><span style="color:#55555a">|</span>
@@ -435,7 +557,7 @@
           </div>
         </sc-for>
       </div>
-      <div style="position:absolute;right:0;bottom:4px;display:flex;align-items:center;gap:12px">
+      <div class="footer-signature" style="position:absolute;right:0;bottom:4px;display:flex;align-items:center;gap:12px">
         <span style="font:400 11px Inter,sans-serif;letter-spacing:.5px;color:#77777c">Design by</span>
         <img src="./assets/insany-primary.svg" alt="Insany" style="display:block;width:125px;height:16px">
       </div>
@@ -443,10 +565,10 @@
   </div>
 </footer>
 
-<div style="{{ stickyStyle }}">
-  <div style="max-width:1440px;margin:0 auto;padding:0 80px;height:72px;display:flex;align-items:center;justify-content:space-between;box-sizing:border-box">
+<div class="sticky-buy-bar" style="{{ stickyStyle }}">
+  <div class="sticky-buy-inner" style="max-width:1440px;margin:0 auto;padding:0 80px;height:72px;display:flex;align-items:center;justify-content:space-between;box-sizing:border-box">
     <div style="display:flex;align-items:center;gap:22px">
-      <span style="font:600 17px Inter,sans-serif;color:#fff">Dreame L50 Ultra Robot Vacuum</span>
+      <span class="sticky-product-name" style="font:600 17px Inter,sans-serif;color:#fff">Dreame L50 Ultra Robot Vacuum</span>
       <div style="display:flex;gap:8px;align-items:center">
         <div style="width:18px;height:18px;border-radius:50%;background:#1d1d1f;border:2px solid #c79f6c"></div>
         <div style="width:18px;height:18px;border-radius:50%;background:#f2f2ef;border:2px solid transparent"></div>
@@ -454,8 +576,8 @@
     </div>
     <div style="display:flex;align-items:center;gap:26px">
       <div style="display:flex;flex-direction:column;align-items:flex-end">
-        <span style="font:600 15px Inter,sans-serif;color:#fff">$949.99 <span style="font:400 12px Inter,sans-serif;color:#a5a5aa;text-decoration:line-through">$1,399.99</span></span>
-        <span style="font:400 12px Inter,sans-serif;color:#a5a5aa">Final Price: $799.99 with code L50UWS</span>
+        <span class="sticky-price" style="font:600 15px Inter,sans-serif;color:#fff">$949.99 <span style="font:400 12px Inter,sans-serif;color:#a5a5aa;text-decoration:line-through">$1,399.99</span></span>
+        <span class="sticky-price-note" style="font:400 12px Inter,sans-serif;color:#a5a5aa">Final Price: $799.99 with code L50UWS</span>
       </div>
       <span style="font:500 15px Inter,sans-serif;color:#1d1d1f;background:#c79f6c;padding:11px 30px;border-radius:99px;cursor:pointer">Buy</span>
     </div>
