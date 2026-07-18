@@ -194,6 +194,14 @@
           <span style="{{ vt2.style }}">Dual Flex Arm Reach</span>
         </div>
       </div>
+      <div style="position:relative;width:720px;height:4px;background:rgba(255,255,255,.16);border-radius:99px;overflow:hidden">
+        <div style="{{ videoProgressStyle }}"></div>
+        <div style="position:absolute;inset:0;display:grid;grid-template-columns:repeat(3,1fr)">
+          <div onClick="{{ vt0.on }}" style="cursor:pointer"></div>
+          <div onClick="{{ vt1.on }}" style="cursor:pointer"></div>
+          <div onClick="{{ vt2.on }}" style="cursor:pointer"></div>
+        </div>
+      </div>
       <p style="margin:0;font:400 17px/1.7 Inter,sans-serif;color:#b9b9be;max-width:900px;text-align:center">{{ videoDesc }}</p>
     </div>
   </div>
@@ -500,8 +508,7 @@ class Component extends DCLogic {
       style: {
         font: (i === st.video ? '600' : '400') + ' 17px Inter,sans-serif',
         color: i === st.video ? '#fff' : '#77777c',
-        borderBottom: i === st.video ? '2px solid #fff' : '2px solid transparent',
-        paddingBottom: '14px', cursor: 'pointer'
+        cursor: 'pointer'
       }
     }));
     const vtWrap = (i) => ({
@@ -581,6 +588,12 @@ class Component extends DCLogic {
       gridOn: !!(this.props.showGrid ?? false),
       gridCols: Array.from({ length: 12 }, (_, i) => i),
       modelOptions, videoTabs, petTabs, accCards, vt0, vt1, vt2,
+      videoProgressStyle: {
+        position: 'absolute', left: 0, top: 0, bottom: 0,
+        width: (((st.video + 1) / 3) * 100) + '%',
+        borderRadius: '99px', background: '#c79f6c',
+        transition: 'width .35s ease'
+      },
       accTitle: activeCard.title,
       accDesc: activeCard.desc,
       accStageStyle: {
