@@ -19,7 +19,7 @@ img,svg{max-width:100%}
 .amazon-header *{font-family:Arial,sans-serif!important}
 
 @media (max-width:1100px){
-  .amazon-header{padding-left:20px!important;padding-right:20px!important;gap:16px!important}
+  .amazon-header-inner{padding-left:40px!important;padding-right:40px!important;gap:16px!important}
   .amazon-delivery,.amazon-orders{display:none!important}
   .amazon-search{margin-left:0!important}
   #overview{height:auto!important;min-height:90svh!important}
@@ -55,7 +55,8 @@ img,svg{max-width:100%}
 }
 
 @media (max-width:767px){
-  .amazon-header{height:auto!important;min-height:96px;padding:10px 14px!important;display:flex!important;flex-wrap:wrap!important;gap:10px 14px!important}
+  .amazon-header{height:auto!important;min-height:96px}
+  .amazon-header-inner{min-height:96px;padding:10px 14px!important;display:flex!important;flex-wrap:wrap!important;gap:10px 14px!important}
   .amazon-logo{order:1}
   .amazon-account{order:2;margin-left:auto!important}
   .amazon-cart{order:3}
@@ -168,11 +169,11 @@ img,svg{max-width:100%}
   </div>
 </sc-if>
 
-<div class="amazon-header" data-screen-label="Amazon Header" style="width:100%;height:60px;background:#131921;color:#fff;padding:0 18px;display:flex;align-items:center;gap:22px;box-sizing:border-box">
-  <a class="amazon-logo" href="#overview" aria-label="Amazon.com.br" style="position:relative;display:flex;align-items:flex-end;gap:2px;min-width:142px;height:40px;color:#fff">
-    <span style="font:700 28px/1 Arial,sans-serif;letter-spacing:-1.5px">amazon</span>
-    <span style="font:500 11px/1 Arial,sans-serif;margin-bottom:3px">.com.br</span>
-    <span style="position:absolute;left:13px;bottom:0;width:55px;height:9px;border-bottom:3px solid #ff9900;border-radius:0 0 50% 50%;transform:rotate(2deg)"></span>
+<div class="amazon-header" data-screen-label="Amazon Header" style="width:100%;height:60px;background:#131921;color:#fff;box-sizing:border-box">
+  <div class="amazon-header-inner" style="width:100%;max-width:1440px;height:100%;margin:0 auto;padding:0 80px;display:flex;align-items:center;gap:18px;box-sizing:border-box">
+  <a class="amazon-logo" href="#overview" aria-label="Amazon.com.br" style="position:relative;display:block;min-width:132px;width:132px;height:40px;overflow:hidden">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon" style="position:absolute;left:0;top:2px;width:128px;height:auto;display:block">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="" aria-hidden="true" style="position:absolute;left:0;top:2px;width:128px;height:auto;display:block;filter:brightness(0) invert(1);clip-path:inset(0 0 38% 0)">
   </a>
   <div class="amazon-delivery" style="display:flex;align-items:flex-end;gap:7px;min-width:230px">
     <span aria-hidden="true" style="font:500 22px/1 Arial,sans-serif">⌾</span>
@@ -181,22 +182,23 @@ img,svg{max-width:100%}
       <span style="font:700 13px Arial,sans-serif">Atualizar CEP</span>
     </div>
   </div>
-  <div class="amazon-search" role="search" style="height:42px;display:flex;align-items:stretch;flex:1;min-width:220px;margin-left:4px">
-    <div class="amazon-search-category" style="padding:0 12px;background:#e6e6e6;color:#555;border-radius:5px 0 0 5px;display:flex;align-items:center;font:500 11px Arial,sans-serif;border-right:1px solid #c7c7c7">Cozinha⌄</div>
+  <div class="amazon-search" role="search" style="height:42px;display:flex;align-items:stretch;flex:.82;min-width:220px;margin-left:2px">
+    <div class="amazon-search-category" style="padding:0 10px;background:#e6e6e6;color:#555;border-radius:5px 0 0 5px;display:flex;align-items:center;gap:6px;font:500 11px Arial,sans-serif;border-right:1px solid #c7c7c7"><span>Cozinha</span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg></div>
     <div class="amazon-search-input" style="flex:1;background:#fff;color:#777;display:flex;align-items:center;padding:0 14px;font:500 14px Arial,sans-serif">Pesquisar Amazon.com.br</div>
     <button aria-label="Pesquisar" style="width:48px;border:0;border-radius:0 5px 5px 0;background:#febd69;color:#111;font:400 25px/1 Arial,sans-serif;display:flex;align-items:center;justify-content:center;cursor:pointer">⌕</button>
   </div>
   <div class="amazon-account" style="display:flex;flex-direction:column;line-height:1.05;min-width:112px">
     <span style="font:500 11px Arial,sans-serif">Olá, faça seu login</span>
-    <span style="font:700 13px Arial,sans-serif">Contas e Listas⌄</span>
+    <span style="font:700 13px Arial,sans-serif;display:flex;align-items:center;gap:4px">Contas e Listas <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg></span>
   </div>
   <div class="amazon-orders" style="display:flex;flex-direction:column;line-height:1.05;min-width:88px">
     <span style="font:500 11px Arial,sans-serif">Devoluções</span>
     <span style="font:700 13px Arial,sans-serif">e Pedidos</span>
   </div>
   <div class="amazon-cart" style="display:flex;align-items:flex-end;gap:5px;white-space:nowrap">
-    <span style="position:relative;font:400 27px/1 Arial,sans-serif">🛒<b style="position:absolute;right:-1px;top:-10px;color:#ff9900;font:700 12px Arial,sans-serif">0</b></span>
+    <span style="position:relative;width:36px;height:30px;display:flex;align-items:flex-end"><img src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/svgs/solid/cart-shopping.svg" alt="" style="display:block;width:34px;height:27px;filter:brightness(0) invert(1)"><b style="position:absolute;right:1px;top:-6px;color:#ff9900;font:700 12px Arial,sans-serif">0</b></span>
     <span style="font:700 13px Arial,sans-serif;margin-bottom:2px">Carrinho</span>
+  </div>
   </div>
 </div>
 
@@ -628,9 +630,9 @@ img,svg{max-width:100%}
           </div>
         </sc-for>
       </div>
-      <div class="footer-signature" style="position:absolute;right:0;bottom:4px;display:flex;align-items:center;gap:8px;opacity:.38">
+      <div class="footer-signature" style="position:absolute;right:0;bottom:4px;display:flex;align-items:center;gap:8px">
         <span style="font:400 9px Inter,sans-serif;letter-spacing:.4px;color:#77777c">Design by</span>
-        <img src="./assets/insany-primary.svg" alt="Insany" style="display:block;width:72px;height:10px">
+        <img src="./assets/insany-primary.svg" alt="Insany" style="display:block;width:86px;height:12px">
       </div>
     </div>
   </div>
