@@ -1,11 +1,11 @@
 (() => {
   const params = new URLSearchParams(window.location.search);
   if (params.get("figma") === "1") document.documentElement.classList.add("figma-export");
-  document.documentElement.classList.add("prototype-loading", "js-motion");
+  document.documentElement.classList.add("js-motion");
 
   const component = document.querySelector("script[data-dc-script][data-dc-src]");
   if (!component) {
-    document.documentElement.classList.remove("prototype-loading", "js-motion");
+    document.documentElement.classList.remove("js-motion");
     return;
   }
 
@@ -30,7 +30,6 @@
 
   start().catch((error) => {
     document.documentElement.classList.remove("js-motion");
-    document.documentElement.classList.remove("prototype-loading");
     console.error("[Dreame L50]", error);
   });
 })();

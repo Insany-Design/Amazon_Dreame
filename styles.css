@@ -2,9 +2,6 @@ html,body{width:100%;max-width:100%;overflow-x:hidden;scroll-behavior:smooth;scr
 html{--motion-ease:cubic-bezier(.22,1,.36,1);--accent:#c79f6c}
 body{margin:0;background:#fff;font-family:Manrope,system-ui,sans-serif;-webkit-font-smoothing:antialiased;min-width:0}
 x-dc{display:none!important}
-#dc-root{opacity:1;transition:opacity .28s ease}
-html.prototype-loading body{background:#111214}
-html.prototype-loading #dc-root{opacity:0}
 *{font-family:Manrope,system-ui,sans-serif!important;box-sizing:border-box}
 h1,h2,h3{font-family:'Google Sans Flex',Manrope,sans-serif!important;font-weight:500!important;letter-spacing:-.035em}
 a{color:inherit;text-decoration:none}a:hover{color:#c79f6c}

@@ -155,7 +155,7 @@ class Component extends DCLogic {
       document.body.appendChild(this._progressEl);
     }
     this._onScroll();
-    window.requestAnimationFrame(() => document.documentElement.classList.remove('prototype-loading'));
+    document.documentElement.classList.add('dc-ready');
   }
   componentWillUnmount() {
     window.removeEventListener('scroll', this._scheduleScroll);

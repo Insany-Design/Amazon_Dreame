@@ -42,7 +42,10 @@ test("ships separated HTML, CSS, JavaScript and product assets", async () => {
   assert.match(page, /interactions\.js/);
   assert.match(page, /app\.js/);
   assert.match(page, /rel="preload"[^>]+hero-l50\.png/);
-  assert.doesNotMatch(page, /<style>/);
+  assert.match(page, /id="critical-render"/);
+  assert.match(page, /class="initial-render"/);
+  assert.ok(page.indexOf('class="initial-render"') < page.indexOf("<x-dc>"));
+  assert.match(page, /html\.dc-ready \.initial-render\{display:none\}/);
   assert.doesNotMatch(page, /class Component extends DCLogic/);
   assert.match(interactions, /siteHeaderStyle/);
   assert.match(interactions, /navVisible/);
@@ -53,9 +56,9 @@ test("ships separated HTML, CSS, JavaScript and product assets", async () => {
   assert.match(interactions, /backdropFilter: 'blur\(18px\)'/);
   assert.match(interactions, /motion-section/);
   assert.doesNotMatch(interactions, /\.sc-host > div\[data-screen-label\]/);
-  assert.match(interactions, /prototype-loading/);
+  assert.match(interactions, /classList\.add\('dc-ready'\)/);
   assert.match(styles, /x-dc\{display:none!important\}/);
-  assert.match(styles, /html\.prototype-loading #dc-root\{opacity:0\}/);
+  assert.doesNotMatch(styles, /prototype-loading|#dc-root\{opacity:0/);
   assert.match(page, /feature-icon--leap/);
   assert.match(page, /feature-icon--dock/);
   assert.match(page, /sticky-product-visual/);
@@ -64,7 +67,7 @@ test("ships separated HTML, CSS, JavaScript and product assets", async () => {
   assert.match(styles, /page-progress/);
   assert.match(styles, /prefers-reduced-motion/);
   assert.match(app, /data-dc-src/);
-  assert.match(app, /prototype-loading/);
+  assert.doesNotMatch(app, /prototype-loading/);
   assert.match(page, /assets\/official\/hero-l50\.png/);
   assert.doesNotMatch(page, /class="days-card"/);
   assert.doesNotMatch(page, /showSpecs|\.\/refs\/|\.\/uploads\//);
