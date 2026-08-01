@@ -7,5 +7,5 @@ export const metadata: Metadata = {
 };
 
 export default function Home() {
-  redirect("/prototype.html");
+  redirect("/dreame-l50-ultra.html");
 }

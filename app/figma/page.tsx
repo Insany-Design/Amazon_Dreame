@@ -1,5 +1,5 @@
 import { redirect } from "next/navigation";
 
 export default function FigmaExport() {
-  redirect("/prototype.html?figma=1");
+  redirect("/dreame-l50-ultra.html?figma=1");
 }

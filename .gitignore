@@ -41,9 +41,8 @@ next-env.d.ts
 /outputs/
 /work/
 
-# generated prototype output (created from /prototype during dev/build)
-/public/prototype.html
-/public/styles/
-/public/scripts/
-/public/vendor/
+# generated site output (created from the root HTML/CSS/JS source)
+/public/dreame-l50-ultra.html
+/public/css/
+/public/js/
 /public/assets/

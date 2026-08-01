@@ -1,17 +1,28 @@
-# Project architecture
+# Estrutura do projeto
 
-## Product source
+## Fonte do site
 
-The complete landing page lives in `prototype/`. Markup, presentation, behavior, runtime and media are separated so each concern can evolve independently.
+A raiz do repositório contém a página estática em uma estrutura convencional:
 
-## Application shell
+- `index.html`: conteúdo e marcação da landing page.
+- `css/styles.css`: estilos, responsividade e motion.
+- `js/app.js`: carregamento e inicialização.
+- `js/interactions.js`: estado e comportamento da interface.
+- `assets/`: mídia usada em produção.
 
-The `app/` directory owns the public routes and metadata. The root route points to the prepared static product experience, while `/figma` activates its static export mode.
+O runtime legado necessário para interpretar alguns componentes permanece isolado em `js/vendor/`. Assim, ele não se mistura com o JavaScript editável da página e pode ser removido em uma migração futura sem alterar a organização principal.
 
-## Build pipeline
+## Hospedagem
 
-`scripts/prepare-prototype.mjs` creates the deployable static files in `public/` from the canonical prototype source. The production build then packages the application shell and those assets for Sites.
+O diretório `app/` possui somente as rotas exigidas pelo Sites. O script `scripts/prepare-site.mjs` copia a fonte estática para `public/` antes do desenvolvimento e da build. Portanto, `public/` é uma saída gerada e nunca deve ser editada diretamente.
 
-## Quality controls
+## Otimizações aplicadas
 
-The tests verify routing, source separation, export mode, motion accessibility and the presence of essential product assets.
+- CSS e JavaScript externos, permitindo cache do navegador.
+- script principal carregado com `defer`.
+- imagem principal pré-carregada com prioridade alta.
+- conexões antecipadas para fontes e recursos externos.
+- imagens abaixo da dobra carregadas sob demanda.
+- vídeos configurados com carregamento de metadados.
+- suporte a `prefers-reduced-motion`.
+- build identifica as referências do HTML, CSS e JavaScript e publica somente os assets usados pela página.

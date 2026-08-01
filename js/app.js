@@ -1,6 +1,13 @@
 (() => {
+  const params = new URLSearchParams(window.location.search);
+  if (params.get("figma") === "1") document.documentElement.classList.add("figma-export");
+  document.documentElement.classList.add("prototype-loading", "js-motion");
+
   const component = document.querySelector("script[data-dc-script][data-dc-src]");
-  if (!component) return;
+  if (!component) {
+    document.documentElement.classList.remove("prototype-loading", "js-motion");
+    return;
+  }
 
   const loadScript = (src) => new Promise((resolve, reject) => {
     const script = document.createElement("script");
@@ -18,7 +25,7 @@
     if (window.location.hash.includes("figmacapture=")) {
       await loadScript("https://mcp.figma.com/mcp/html-to-design/capture.js");
     }
-    await loadScript("./vendor/dc-runtime.js");
+    await loadScript("./js/vendor/dc-runtime.js");
   };
 
   start().catch((error) => {
