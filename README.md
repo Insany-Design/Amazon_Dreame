@@ -1,28 +1,31 @@
 # Amazon — Dreame L50 Ultra
 
-Landing page do Dreame L50 Ultra organizada como um projeto web estático convencional.
+Landing page estática do Dreame L50 Ultra.
 
-## Onde editar
+## Estrutura
 
 ```text
 .
-├── index.html              # conteúdo e estrutura da página
-├── css/
-│   └── styles.css          # visual, responsividade e animações
-├── js/
-│   ├── app.js              # inicialização da página
-│   ├── interactions.js     # menus, abas, carrosséis e efeitos de rolagem
-│   └── vendor/             # runtime mantido isolado do código do projeto
-├── assets/                 # imagens, vídeos, logos e itens do produto
-├── materiais/              # arquivos antigos locais; não são publicados
-├── app/                    # rotas mínimas exigidas pela hospedagem Sites
-├── public/                 # saída gerada automaticamente; não editar
-└── tests/                  # validações da build
+├── index.html          # conteúdo da página
+├── styles.css          # aparência e responsividade
+├── app.js              # inicialização
+├── interactions.js     # menus, abas e animações
+├── dc-runtime.js       # suporte legado isolado
+├── assets/             # imagens e vídeos
+├── app/                # adaptador mínimo da hospedagem
+├── public/             # versão gerada automaticamente
+├── build.mjs           # prepara a pasta public
+├── worker.ts           # entrada da hospedagem
+└── test.mjs            # validação automática
 ```
 
-O trabalho diário fica concentrado em `index.html`, `css/`, `js/` e `assets/`. As pastas `app/`, `public/` e `.openai/` existem apenas para manter a publicação compatível com Sites. A pasta `materiais/` preserva referências e versões antigas, mas fica fora do Git e da publicação.
+Para editar a landing page, normalmente basta trabalhar em `index.html`, `styles.css`, `app.js`, `interactions.js` e `assets/`.
 
-## Executar localmente
+`app/`, `.openai/`, `worker.ts` e `vite.config.ts` existem somente para a publicação no Sites. `public/` e `dist/` são saídas automáticas e não devem ser editadas. `node_modules/` contém dependências instaladas e também não faz parte do Git.
+
+Os arquivos antigos ficam preservados localmente em `materiais/`, fora do Git e da publicação.
+
+## Executar
 
 ```bash
 npm install
@@ -34,5 +37,3 @@ npm run dev
 ```bash
 npm test
 ```
-
-Antes de iniciar ou gerar a build, `npm run prepare:site` copia somente os arquivos necessários para `public/`.

@@ -10,12 +10,11 @@ const eslintConfig = defineConfig([
     // Default ignores of eslint-config-next:
     ".next/**",
     "out/**",
-    "build/**",
     "next-env.d.ts",
     // Generated runtime and template source are validated by the prototype tests.
-    "js/vendor/**",
-    "js/interactions.js",
-    // Public prototype files are generated from /prototype before every build.
+    "dc-runtime.js",
+    "interactions.js",
+    // Public files are generated from the root source before every build.
     "public/**",
   ]),
 ]);

@@ -25,7 +25,7 @@
     if (window.location.hash.includes("figmacapture=")) {
       await loadScript("https://mcp.figma.com/mcp/html-to-design/capture.js");
     }
-    await loadScript("./js/vendor/dc-runtime.js");
+    await loadScript("./dc-runtime.js");
   };
 
   start().catch((error) => {

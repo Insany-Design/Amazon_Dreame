@@ -26,8 +26,8 @@ img,svg{max-width:100%}
 .figma-export .days-sticky{position:relative!important;top:auto!important;height:900px!important}
 .figma-export .days-stage{transform:scale(1)!important}
 .figma-export video{display:none!important}
-.figma-export .action-video{background:#121318 url('../assets/official/l50-feature-overview-poster.jpg') center/cover no-repeat!important}
-.figma-export .dock-media-grid>div:nth-child(2) .dock-media-card{background:#ebe8e2 url('../assets/official/l50-dock-mop-wash-poster.jpg') center/cover no-repeat!important}
+.figma-export .action-video{background:#121318 url('./assets/official/l50-feature-overview-poster.jpg') center/cover no-repeat!important}
+.figma-export .dock-media-grid>div:nth-child(2) .dock-media-card{background:#ebe8e2 url('./assets/official/l50-dock-mop-wash-poster.jpg') center/cover no-repeat!important}
 .dock-control{opacity:0;transform:translateY(44px);transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1);will-change:opacity,transform}
 .dock-control.is-visible{opacity:1;transform:translateY(0)}
 .page-progress{position:fixed;z-index:120;top:0;left:0;width:100%;height:2px;pointer-events:none;transform:scaleX(0);transform-origin:left center;background:linear-gradient(90deg,#b9864d,var(--accent),#e4c59c);box-shadow:0 0 14px rgba(199,159,108,.5);will-change:transform}
@@ -74,7 +74,7 @@ img,svg{max-width:100%}
 @keyframes icon-dock-line{0%,100%{opacity:.5}50%{opacity:1}}
 .figma-export .motion-section{opacity:1!important;transform:none!important}
 .figma-export .page-progress{display:none!important}
-.days-stage{background-color:#171a22!important;background-image:url('../assets/official/l50-120-days-water-management.jpg')!important;background-position:right center!important;background-size:auto 100%!important}
+.days-stage{background-color:#171a22!important;background-image:url('./assets/official/l50-120-days-water-management.jpg')!important;background-position:right center!important;background-size:auto 100%!important}
 .days-counter{position:absolute;left:10%;top:50%;transform:translateY(-50%);display:flex;align-items:baseline;gap:12px;text-shadow:0 3px 24px rgba(0,0,0,.55)}
 
 @media (prefers-reduced-motion:reduce){
@@ -181,7 +181,7 @@ img,svg{max-width:100%}
   .video-progress{width:100%!important}
   .works-row{gap:36px!important;flex-wrap:wrap;justify-content:center}
   .days-sticky{padding-left:20px!important;padding-right:20px!important}
-  .days-stage{height:56vh!important;background-image:url('../assets/official/l50-120-days-water-management.jpg')!important;background-position:center center!important;background-size:cover!important}
+  .days-stage{height:56vh!important;background-image:url('./assets/official/l50-120-days-water-management.jpg')!important;background-position:center center!important;background-size:cover!important}
   .days-overlay{background:linear-gradient(180deg,rgba(0,0,0,.36) 0%,rgba(0,0,0,.04) 54%,rgba(0,0,0,.12) 100%)!important}
   .days-counter{left:50%!important;top:19%!important;transform:translate(-50%,-50%)!important;white-space:nowrap}
   .days-counter span:first-child{font-size:82px!important}

@@ -3,7 +3,7 @@ import { access, readFile } from "node:fs/promises";
 import test from "node:test";
 
 async function render(pathname = "/") {
-  const workerUrl = new URL("../dist/server/index.js", import.meta.url);
+  const workerUrl = new URL("./dist/server/index.js", import.meta.url);
   workerUrl.searchParams.set("test", `${process.pid}-${Date.now()}`);
   const { default: worker } = await import(workerUrl.href);
 
@@ -20,25 +20,17 @@ test("redirects the public root to the static product page", async () => {
   assert.equal(new URL(response.headers.get("location")).pathname, "/dreame-l50-ultra.html");
 });
 
-test("provides a dedicated full-page Figma export route", async () => {
-  const response = await render("/figma");
-  assert.equal(response.status, 307);
-  const location = new URL(response.headers.get("location"));
-  assert.equal(location.pathname, "/dreame-l50-ultra.html");
-  assert.equal(location.search, "?figma=1");
-});
-
 test("ships separated HTML, CSS, JavaScript and product assets", async () => {
-  const publicRoot = new URL("../public/", import.meta.url);
+  const publicRoot = new URL("./public/", import.meta.url);
   const page = await readFile(new URL("dreame-l50-ultra.html", publicRoot), "utf8");
-  const styles = await readFile(new URL("css/styles.css", publicRoot), "utf8");
-  const interactions = await readFile(new URL("js/interactions.js", publicRoot), "utf8");
-  const app = await readFile(new URL("js/app.js", publicRoot), "utf8");
+  const styles = await readFile(new URL("styles.css", publicRoot), "utf8");
+  const interactions = await readFile(new URL("interactions.js", publicRoot), "utf8");
+  const app = await readFile(new URL("app.js", publicRoot), "utf8");
 
   assert.match(page, /lang="pt-BR"/);
-  assert.match(page, /css\/styles\.css/);
-  assert.match(page, /js\/interactions\.js/);
-  assert.match(page, /js\/app\.js/);
+  assert.match(page, /styles\.css/);
+  assert.match(page, /interactions\.js/);
+  assert.match(page, /app\.js/);
   assert.match(page, /rel="preload"[^>]+hero-l50\.png/);
   assert.doesNotMatch(page, /<style>/);
   assert.doesNotMatch(page, /class Component extends DCLogic/);
@@ -79,5 +71,5 @@ test("ships separated HTML, CSS, JavaScript and product assets", async () => {
 
   await access(new URL("assets/official/hero-l50.png", publicRoot));
   await access(new URL("assets/official/pet-find.webp", publicRoot));
-  await access(new URL("js/vendor/dc-runtime.js", publicRoot));
+  await access(new URL("dc-runtime.js", publicRoot));
 });

@@ -1,8 +1,8 @@
-import { cp, copyFile, mkdir, readFile, rm } from "node:fs/promises";
+import { copyFile, mkdir, readFile, rm } from "node:fs/promises";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
-const projectDir = join(dirname(fileURLToPath(import.meta.url)), "..");
+const projectDir = dirname(fileURLToPath(import.meta.url));
 const publicDir = join(projectDir, "public");
 
 await mkdir(publicDir, { recursive: true });
@@ -14,6 +14,10 @@ for (const target of [
   "vendor",
   "css",
   "js",
+  "styles.css",
+  "app.js",
+  "interactions.js",
+  "dc-runtime.js",
   "assets",
 ]) {
   await rm(join(publicDir, target), { recursive: true, force: true });
@@ -23,18 +27,15 @@ await copyFile(
   join(publicDir, "dreame-l50-ultra.html"),
 );
 
-for (const directory of ["css", "js"]) {
-  await cp(join(projectDir, directory), join(publicDir, directory), {
-    recursive: true,
-    force: true,
-  });
+for (const file of ["styles.css", "app.js", "interactions.js", "dc-runtime.js"]) {
+  await copyFile(join(projectDir, file), join(publicDir, file));
 }
 
 const assetReferences = new Set();
 const sourceFiles = [
   join(projectDir, "index.html"),
-  join(projectDir, "css", "styles.css"),
-  join(projectDir, "js", "interactions.js"),
+  join(projectDir, "styles.css"),
+  join(projectDir, "interactions.js"),
 ];
 
 for (const sourceFile of sourceFiles) {
