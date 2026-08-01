@@ -663,7 +663,7 @@ img,svg{max-width:100%}
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;showGrid&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Wireframe&quot;}}">
 class Component extends DCLogic {
-  state = { model: 0, modelOpen: false, video: 0, pet: 1, slide: 0, acc: 2, sticky: false, daysP: 0, navTop: 60 };
+  state = { model: 0, modelOpen: false, video: 0, pet: 1, slide: 0, acc: 2, sticky: false, daysP: 0, navTop: 60, navVisible: true };
   daysEl = React.createRef();
   componentDidMount() {
     this._onScroll = () => {
@@ -671,9 +671,17 @@ class Component extends DCLogic {
       const s = scrollTop > 720;
       const amazonHeight = window.innerWidth <= 767 ? 96 : 60;
       const navTop = Math.max(0, amazonHeight - scrollTop);
+      const previousScrollTop = this._lastScrollTop ?? scrollTop;
+      const scrollDelta = scrollTop - previousScrollTop;
+      let navVisible = this.state.navVisible;
+      if (scrollTop <= amazonHeight) navVisible = true;
+      else if (scrollDelta > 2) navVisible = false;
+      else if (scrollDelta < -2) navVisible = true;
+      this._lastScrollTop = scrollTop;
       const nextState = {};
       if (s !== this.state.sticky) nextState.sticky = s;
       if (Math.abs(navTop - this.state.navTop) > 0.5) nextState.navTop = navTop;
+      if (navVisible !== this.state.navVisible) nextState.navVisible = navVisible;
       const el = this.daysEl.current;
       if (el) {
         const total = Math.max(1, el.offsetHeight - window.innerHeight);
@@ -824,10 +832,13 @@ class Component extends DCLogic {
       },
       siteHeaderStyle: {
         position: 'fixed', left: 0, right: 0, top: st.navTop + 'px', width: '100%', maxWidth: 'none', margin: 0,
-        padding: '0 max(20px, calc((100vw - 1280px) / 2))', height: '68px', display: 'flex', alignItems: 'center',
+        paddingLeft: 'max(20px, calc((100vw - 1280px) / 2))', paddingRight: 'max(20px, calc((100vw - 1280px) / 2))',
+        height: '68px', display: 'flex', alignItems: 'center',
         justifyContent: 'flex-start', gap: '18px', boxSizing: 'border-box', zIndex: 100,
         background: 'rgba(31,32,34,.78)', backdropFilter: 'blur(18px)', WebkitBackdropFilter: 'blur(18px)',
-        borderBottom: '1px solid rgba(255,255,255,.1)', boxShadow: '0 8px 28px rgba(0,0,0,.16)'
+        borderBottom: '1px solid rgba(255,255,255,.1)', boxShadow: '0 8px 28px rgba(0,0,0,.16)',
+        transform: st.navVisible ? 'translateY(0)' : 'translateY(-115%)',
+        transition: 'transform .28s cubic-bezier(.3,.8,.3,1), top .08s linear'
       },
       headerModelOptions, petTabs, petProgressStyle, accCards, vt0, vt1, vt2,
       videoProgressStyle: {

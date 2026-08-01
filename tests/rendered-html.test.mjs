@@ -30,6 +30,8 @@ test("ships the current prototype and official product photography", async () =>
   const prototype = await readFile(new URL("prototype.html", publicRoot), "utf8");
 
   assert.match(prototype, /siteHeaderStyle/);
+  assert.match(prototype, /navVisible/);
+  assert.match(prototype, /translateY\(-115%\)/);
   assert.match(prototype, /backdropFilter: 'blur\(18px\)'/);
   assert.match(prototype, /assets\/official\/hero-l50\.png/);
   assert.match(prototype, /assets\/official\/dock-system\.webp/);
