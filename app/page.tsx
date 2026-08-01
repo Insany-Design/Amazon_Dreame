@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <iframe
       className="prototype-frame"
-        src="/prototype.html?v=16"
+        src="/prototype.html?v=17"
       title="Dreame L50 Ultra"
     />
   );
