@@ -173,7 +173,6 @@ img,svg{max-width:100%}
   .product-pills{flex-wrap:wrap!important;justify-content:center!important}
   .product-pills span{font-size:10px!important;padding:9px 13px!important;letter-spacing:.85px!important}
   .product-container{padding-left:20px!important;padding-right:20px!important;margin-top:72px!important}
-  .days-card{height:420px!important}
   .action-video{height:220px!important}
   .action-video video{object-fit:contain!important;background:#070709}
   .video-tabs{width:100%;gap:28px!important;overflow-x:auto;justify-content:flex-start;padding-bottom:4px;scrollbar-width:none}

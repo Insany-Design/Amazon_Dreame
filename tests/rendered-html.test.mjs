@@ -62,7 +62,7 @@ test("ships the current prototype and official product photography", async () =>
   assert.match(boot, /data-dc-src/);
   assert.match(boot, /prototype-loading/);
   assert.match(prototype, /assets\/official\/hero-l50\.png/);
-  assert.match(prototype, /assets\/official\/dock-system\.webp/);
+  assert.doesNotMatch(prototype, /class="days-card"/);
   assert.doesNotMatch(prototype, /showSpecs|\.\/refs\/|\.\/uploads\//);
 
   await access(new URL("assets/official/hero-l50.png", publicRoot));
