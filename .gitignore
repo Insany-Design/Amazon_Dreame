@@ -40,3 +40,10 @@ next-env.d.ts
 /.wrangler/
 /outputs/
 /work/
+
+# generated prototype output (created from /prototype during dev/build)
+/public/prototype.html
+/public/styles/
+/public/scripts/
+/public/vendor/
+/public/assets/

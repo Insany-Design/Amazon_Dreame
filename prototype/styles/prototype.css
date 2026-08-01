@@ -1,0 +1,197 @@
+html,body{width:100%;max-width:100%;overflow-x:hidden;scroll-behavior:smooth;scroll-padding-top:68px}
+html{--motion-ease:cubic-bezier(.22,1,.36,1);--accent:#c79f6c}
+body{margin:0;background:#fff;font-family:Manrope,system-ui,sans-serif;-webkit-font-smoothing:antialiased;min-width:0}
+*{font-family:Manrope,system-ui,sans-serif!important;box-sizing:border-box}
+h1,h2,h3{font-family:'Google Sans Flex',Manrope,sans-serif!important;font-weight:500!important;letter-spacing:-.035em}
+a{color:inherit;text-decoration:none}a:hover{color:#c79f6c}
+img,svg{max-width:100%}
+.amazon-header *{font-family:Arial,sans-serif!important}
+
+/* Static composition mode used by Figma and full-page export tools. */
+.figma-export{scroll-behavior:auto!important}
+.figma-export *,
+.figma-export *::before,
+.figma-export *::after{animation:none!important;transition:none!important}
+.figma-export .site-header{position:absolute!important;top:60px!important;transform:none!important}
+.figma-export .sticky-buy-bar{display:none!important}
+.figma-export #powerdock .sticky-product-stage{height:900px!important}
+.figma-export #powerdock .sticky-product-image{position:absolute!important;inset:0!important;height:900px!important}
+.figma-export #powerdock .product-copy{height:900px!important;margin-top:0!important;padding:330px 80px 0!important}
+.figma-export [data-screen-label="Days Counter"]{height:900px!important}
+.figma-export .days-sticky{position:relative!important;top:auto!important;height:900px!important}
+.figma-export .days-stage{transform:scale(1)!important}
+.figma-export video{display:none!important}
+.figma-export .action-video{background:#121318 url('../assets/official/l50-feature-overview-poster.jpg') center/cover no-repeat!important}
+.figma-export .dock-media-grid>div:nth-child(2) .dock-media-card{background:#ebe8e2 url('../assets/official/l50-dock-mop-wash-poster.jpg') center/cover no-repeat!important}
+.dock-control{opacity:0;transform:translateY(44px);transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1);will-change:opacity,transform}
+.dock-control.is-visible{opacity:1;transform:translateY(0)}
+.page-progress{position:fixed;z-index:120;top:0;left:0;width:100%;height:2px;pointer-events:none;transform:scaleX(0);transform-origin:left center;background:linear-gradient(90deg,#b9864d,var(--accent),#e4c59c);box-shadow:0 0 14px rgba(199,159,108,.5);will-change:transform}
+.main-nav a{position:relative;transition:color .28s ease,opacity .28s ease}
+.main-nav a::after{content:'';position:absolute;left:0;right:0;bottom:-7px;height:1px;background:var(--accent);transform:scaleX(0);transform-origin:center;transition:transform .32s var(--motion-ease)}
+.main-nav a.is-current{color:#fff!important}
+.main-nav a.is-current::after{transform:scaleX(1)}
+.hero-buy,.sticky-buy-bar span:last-child,.precision-carousel button,.model-tabs>div,.pet-tabs>div,.intelligence-cards>div{transition:transform .3s var(--motion-ease),box-shadow .3s ease,background-color .3s ease,color .3s ease}
+.hero-buy:hover,.sticky-buy-bar span:last-child:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(199,159,108,.25)}
+.precision-carousel button:hover{transform:scale(1.06)}
+.model-tabs>div:hover,.pet-tabs>div:hover{transform:translateY(-2px)}
+@media (prefers-reduced-motion:no-preference){
+  .js-motion .motion-section{opacity:0;transform:translateY(30px);transition:opacity .8s var(--motion-ease),transform .9s var(--motion-ease)}
+  .js-motion .motion-section.motion-visible{opacity:1;transform:translateY(0)}
+}
+.figma-export .motion-section{opacity:1!important;transform:none!important}
+.figma-export .page-progress{display:none!important}
+.days-stage{background-color:#171a22!important;background-image:url('../assets/official/l50-120-days-water-management.jpg')!important;background-position:right center!important;background-size:auto 100%!important}
+.days-counter{position:absolute;left:10%;top:50%;transform:translateY(-50%);display:flex;align-items:baseline;gap:12px;text-shadow:0 3px 24px rgba(0,0,0,.55)}
+
+@media (prefers-reduced-motion:reduce){
+  html,body{scroll-behavior:auto}
+  .dock-control{opacity:1;transform:none;transition:none}
+  .page-progress{display:none}
+  .motion-section{opacity:1!important;transform:none!important;transition:none!important}
+}
+
+@media (max-width:1100px){
+  .amazon-header-inner{padding-left:40px!important;padding-right:40px!important;gap:16px!important}
+  .amazon-delivery,.amazon-orders{display:none!important}
+  .amazon-search{margin-left:0!important}
+  #overview{height:auto!important;min-height:90svh!important}
+  .site-header{padding-left:40px!important;padding-right:40px!important}
+  .main-nav{display:none!important}
+  .header-actions{margin-left:auto!important}
+  .hero-content{padding-left:40px!important;padding-right:40px!important}
+  .model-tabs{overflow-x:auto;scrollbar-width:none;padding-bottom:8px}
+  .model-tabs::-webkit-scrollbar{display:none}
+  .hero-bottom{flex-direction:column!important;align-items:flex-start!important;gap:36px!important;padding-top:100px}
+  .hero-copy{max-width:760px!important}
+  .hero-copy p{white-space:normal!important}
+  .hero-purchase{width:100%;align-items:flex-start!important}
+  .hero-metrics{width:100%;display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr));text-align:left!important}
+  .hero-metrics>div{align-items:flex-start!important}
+  .hero-buy-area{align-items:flex-start!important;text-align:left!important}
+  section{padding-left:40px!important;padding-right:40px!important}
+  #duobrush .feature-grid{grid-template-columns:repeat(3,1fr)!important;gap:40px 24px!important}
+  .dock-media-grid{grid-template-columns:1fr!important}
+  .product-copy{padding-left:40px!important;padding-right:40px!important}
+  .product-container{padding-left:40px!important;padding-right:40px!important}
+  .video-progress{width:100%!important;max-width:720px}
+  #intelligence{padding:80px 40px!important}
+  .intelligence-copy{left:auto!important;right:32px!important;width:calc(100% - 470px)!important}
+  .ace-grid{width:calc(100% - 80px)!important}
+  .precision-container{padding-left:40px!important;padding-right:40px!important}
+  .precision-columns{gap:32px!important}
+  .days-sticky{padding-left:40px!important;padding-right:40px!important}
+  .package-layout{grid-template-columns:1fr!important}
+  .package-hero{position:relative!important;top:auto!important}
+  .footer-grid{grid-template-columns:repeat(2,1fr)!important}
+  .sticky-buy-inner{padding-left:40px!important;padding-right:40px!important}
+}
+
+@media (max-width:767px){
+  .amazon-header{height:auto!important;min-height:96px}
+  .amazon-header-inner{min-height:96px;padding:10px 14px!important;display:flex!important;flex-wrap:wrap!important;gap:10px 14px!important}
+  .amazon-logo{order:1}
+  .amazon-account{order:2;margin-left:auto!important}
+  .amazon-cart{order:3}
+  .amazon-search{order:4;flex:0 0 100%!important;width:100%!important;height:38px!important}
+  .amazon-search-category{display:none!important}
+  .amazon-search-input{border-radius:5px 0 0 5px!important}
+  .site-header{height:60px!important;padding-left:20px!important;padding-right:20px!important}
+  .site-header svg{width:90px!important;height:auto!important}
+  .brand-cluster{gap:10px!important;min-width:0}
+  .brand-divider{height:16px!important}
+  .model-switcher-button{max-width:150px!important;padding:7px 8px!important;font-size:11px!important}
+  .model-switcher-button>span:first-child{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .model-dropdown{width:260px!important;left:-108px!important}
+  .site-header-cta{display:none!important}
+  #overview{height:auto!important;min-height:90svh!important}
+  .hero-content{padding-left:20px!important;padding-right:20px!important}
+  .model-tabs{padding-top:24px!important;gap:10px!important}
+  .model-tabs>div{flex:0 0 auto}
+  .hero-bottom{gap:28px!important;padding-top:80px;padding-bottom:34px!important}
+  .hero-copy h1{font-size:38px!important;line-height:1.08!important}
+  .hero-copy p{font-size:16px!important}
+  .hero-metrics{gap:14px!important}
+  .hero-metrics>div>span:first-child{font-size:22px!important}
+  .hero-metrics>div>span:last-child{font-size:10px!important}
+  .hero-buy{padding-left:18px!important;gap:12px!important}
+  .hero-buy>span:first-child{font-size:14px!important}
+  .hero-buy>span:last-child{font-size:14px!important;padding:10px 18px!important}
+  section{padding-left:20px!important;padding-right:20px!important}
+  h2{font-size:34px!important;line-height:1.12!important}
+  #duobrush{padding-top:72px!important}
+  #duobrush .feature-grid{grid-template-columns:repeat(2,1fr)!important;gap:36px 18px!important}
+  #duobrush .section-intro{padding-top:72px!important;padding-bottom:52px!important}
+  .dock-media-main{height:440px!important}
+  .dock-media-main .dock-stat-left{left:20px!important;bottom:84px!important}
+  .dock-media-main .dock-stat-right{left:20px!important;right:auto!important;bottom:28px!important;gap:12px!important}
+  .dock-media-main .dock-stat-right{flex-wrap:wrap!important}
+  .dock-media-main .dock-stat-right span{font-size:14px!important}
+  .dock-media-card{height:360px!important}
+  .dock-control{width:calc(100% - 40px)!important}
+  #powerdock{padding-bottom:90px!important}
+  .sticky-product-stage{height:145vh!important}
+  .sticky-product-image{height:100svh!important;background-size:cover!important;background-position:58% top!important}
+  .product-copy{height:145vh!important;margin-top:-100svh!important;padding:68svh 20px 0!important}
+  .product-copy-inner{gap:24px!important}
+  .product-copy h2{font-size:42px!important}
+  .product-pills{flex-wrap:wrap!important;justify-content:center!important}
+  .product-pills span{font-size:10px!important;padding:9px 13px!important;letter-spacing:.85px!important}
+  .product-container{padding-left:20px!important;padding-right:20px!important;margin-top:72px!important}
+  .days-card{height:420px!important}
+  .action-video{height:220px!important}
+  .action-video video{object-fit:contain!important;background:#070709}
+  .video-tabs{width:100%;gap:28px!important;overflow-x:auto;justify-content:flex-start;padding-bottom:4px;scrollbar-width:none}
+  .video-tabs::-webkit-scrollbar{display:none}
+  .video-tabs>div{min-width:150px;flex:0 0 auto}
+  .video-progress{width:100%!important}
+  .works-row{gap:36px!important;flex-wrap:wrap;justify-content:center}
+  .days-sticky{padding-left:20px!important;padding-right:20px!important}
+  .days-stage{height:56vh!important;background-image:url('../assets/official/l50-120-days-water-management.jpg')!important;background-position:center center!important;background-size:cover!important}
+  .days-overlay{background:linear-gradient(180deg,rgba(0,0,0,.36) 0%,rgba(0,0,0,.04) 54%,rgba(0,0,0,.12) 100%)!important}
+  .days-counter{left:50%!important;top:19%!important;transform:translate(-50%,-50%)!important;white-space:nowrap}
+  .days-counter span:first-child{font-size:82px!important}
+  .days-counter span:last-child{font-size:24px!important}
+  #cleaning{padding-top:84px!important}
+  .cleaning-stats{flex-direction:column!important;gap:24px!important}
+  .cleaning-stats>div[style*="width:1px"]{width:80px!important;height:1px!important}
+  .cleaning-media{height:320px!important;margin-top:52px!important;margin-bottom:72px!important}
+  #intelligence{padding:64px 20px!important}
+  .intelligence-stage{height:850px!important;border-radius:20px!important}
+  .intelligence-cards{left:20px!important;right:auto!important;top:20px!important;width:calc(100% - 40px)!important;max-width:320px!important}
+  .intelligence-copy{left:20px!important;right:20px!important;bottom:26px!important;width:auto!important;align-items:flex-start!important;text-align:left!important}
+  .ace-background{height:700px!important;background-position:70% center!important}
+  .ace-grid{width:calc(100% - 40px)!important}
+  .ace-copy{width:100%!important;right:0!important;align-items:center!important;text-align:center!important;gap:30px!important}
+  .ace-copy h3{font-size:36px!important}
+  .ace-stats{gap:24px!important;justify-content:center!important;flex-wrap:wrap}
+  .ace-stats>div{align-items:center!important}
+  .precision-container{margin-top:80px!important;padding-left:20px!important;padding-right:20px!important;gap:72px!important}
+  .precision-carousel{gap:14px!important}
+  .precision-container>div:nth-child(2)>div:first-child{flex-direction:column!important;align-items:flex-start!important;gap:20px}
+  .precision-carousel>div:first-child{height:420px!important}
+  .precision-carousel>div:last-child{display:none!important}
+  .precision-columns{grid-template-columns:1fr!important;gap:36px!important}
+  [data-screen-label="Pet Friendly"]{padding-top:84px!important;padding-bottom:84px!important}
+  .pet-heading{flex-direction:column!important;gap:24px!important}
+  .pet-media{height:420px!important}
+  .pet-tabs-scroll{overflow-x:auto;scrollbar-width:none;padding-bottom:4px}
+  .pet-tabs-scroll::-webkit-scrollbar{display:none}
+  .pet-tabs-shell{min-width:0!important}
+  .pet-tabs>div{min-height:52px!important;padding:0 4px!important}
+  .pet-tabs span{font-size:12px!important;line-height:1.3!important}
+  #specs{padding:72px 20px 110px!important}
+  .package-list{gap:44px!important}
+  .package-hero>div:first-child{height:420px!important}
+  .package-items{grid-template-columns:repeat(2,1fr)!important;gap:24px 14px!important}
+  .package-items>div>div:first-child{height:140px!important}
+  footer{padding:64px 20px 130px!important}
+  .footer-grid{grid-template-columns:1fr!important;gap:42px!important}
+  .footer-legal{align-items:flex-start!important;text-align:left!important}
+  .footer-legal>div:nth-of-type(1){flex-wrap:wrap!important}
+  .footer-signature{position:static!important;align-items:flex-start!important;text-align:left!important}
+  .sticky-buy-bar{min-height:76px!important;height:auto!important}
+  .sticky-buy-inner{padding:10px 20px!important;height:auto!important;gap:12px!important}
+  .sticky-product-name{font-size:12px!important;max-width:140px}
+  .sticky-price-note{display:none!important}
+  .sticky-price{font-size:13px!important}
+}

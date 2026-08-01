@@ -12,6 +12,11 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Generated runtime and template source are validated by the prototype tests.
+    "prototype/vendor/**",
+    "prototype/scripts/component.js",
+    // Public prototype files are generated from /prototype before every build.
+    "public/**",
   ]),
 ]);
 

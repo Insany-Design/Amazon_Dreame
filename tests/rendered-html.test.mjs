@@ -31,17 +31,29 @@ test("provides a dedicated full-page Figma export route", async () => {
 test("ships the current prototype and official product photography", async () => {
   const publicRoot = new URL("../public/", import.meta.url);
   const prototype = await readFile(new URL("prototype.html", publicRoot), "utf8");
+  const styles = await readFile(new URL("styles/prototype.css", publicRoot), "utf8");
+  const component = await readFile(new URL("scripts/component.js", publicRoot), "utf8");
+  const boot = await readFile(new URL("scripts/boot.js", publicRoot), "utf8");
 
-  assert.match(prototype, /siteHeaderStyle/);
-  assert.match(prototype, /navVisible/);
-  assert.match(prototype, /figma-export/);
-  assert.match(prototype, /exportMode \? 1 : st\.daysP/);
-  assert.match(prototype, /translateY\(-115%\)/);
-  assert.match(prototype, /backdropFilter: 'blur\(18px\)'/);
+  assert.match(prototype, /styles\/prototype\.css/);
+  assert.match(prototype, /scripts\/component\.js/);
+  assert.match(prototype, /scripts\/boot\.js/);
+  assert.doesNotMatch(prototype, /<style>/);
+  assert.doesNotMatch(prototype, /class Component extends DCLogic/);
+  assert.match(component, /siteHeaderStyle/);
+  assert.match(component, /navVisible/);
+  assert.match(component, /exportMode \? 1 : st\.daysP/);
+  assert.match(component, /translateY\(-115%\)/);
+  assert.match(component, /backdropFilter: 'blur\(18px\)'/);
+  assert.match(component, /motion-section/);
+  assert.match(styles, /page-progress/);
+  assert.match(styles, /prefers-reduced-motion/);
+  assert.match(boot, /data-dc-src/);
   assert.match(prototype, /assets\/official\/hero-l50\.png/);
   assert.match(prototype, /assets\/official\/dock-system\.webp/);
   assert.doesNotMatch(prototype, /showSpecs|\.\/refs\/|\.\/uploads\//);
 
   await access(new URL("assets/official/hero-l50.png", publicRoot));
   await access(new URL("assets/official/pet-find.webp", publicRoot));
+  await access(new URL("vendor/dc-runtime.js", publicRoot));
 });
