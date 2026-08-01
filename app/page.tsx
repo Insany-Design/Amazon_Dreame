@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { redirect } from "next/navigation";
 
 export const metadata: Metadata = {
   title: "Dreame L50 Ultra",
@@ -6,11 +7,5 @@ export const metadata: Metadata = {
 };
 
 export default function Home() {
-  return (
-    <iframe
-      className="prototype-frame"
-      src="/prototype.html"
-      title="Dreame L50 Ultra"
-    />
-  );
+  redirect("/prototype.html");
 }

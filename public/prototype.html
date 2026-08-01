@@ -3,6 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+if (new URLSearchParams(window.location.search).get('figma') === '1') {
+  document.documentElement.classList.add('figma-export');
+}
+</script>
 <script src="./support.js"></script>
 </head>
 <body>
@@ -10,13 +15,39 @@
 <helmet>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,300..700&amp;family=Manrope:wght@300;400;500;600;700&amp;display=swap">
 <style>
-html,body{width:100%;max-width:100%;overflow-x:hidden}
+html,body{width:100%;max-width:100%;overflow-x:hidden;scroll-behavior:smooth;scroll-padding-top:68px}
 body{margin:0;background:#fff;font-family:Manrope,system-ui,sans-serif;-webkit-font-smoothing:antialiased;min-width:0}
 *{font-family:Manrope,system-ui,sans-serif!important;box-sizing:border-box}
 h1,h2,h3{font-family:'Google Sans Flex',Manrope,sans-serif!important;font-weight:500!important;letter-spacing:-.035em}
 a{color:inherit;text-decoration:none}a:hover{color:#c79f6c}
 img,svg{max-width:100%}
 .amazon-header *{font-family:Arial,sans-serif!important}
+
+/* Static composition mode used by Figma and full-page export tools. */
+.figma-export{scroll-behavior:auto!important}
+.figma-export *,
+.figma-export *::before,
+.figma-export *::after{animation:none!important;transition:none!important}
+.figma-export .site-header{position:absolute!important;top:60px!important;transform:none!important}
+.figma-export .sticky-buy-bar{display:none!important}
+.figma-export #powerdock .sticky-product-stage{height:900px!important}
+.figma-export #powerdock .sticky-product-image{position:absolute!important;inset:0!important;height:900px!important}
+.figma-export #powerdock .product-copy{height:900px!important;margin-top:0!important;padding:330px 80px 0!important}
+.figma-export [data-screen-label="Days Counter"]{height:900px!important}
+.figma-export .days-sticky{position:relative!important;top:auto!important;height:900px!important}
+.figma-export .days-stage{transform:scale(1)!important}
+.figma-export video{display:none!important}
+.figma-export .action-video{background:#121318 url('./assets/official/l50-feature-overview-poster.jpg') center/cover no-repeat!important}
+.figma-export .dock-media-grid>div:nth-child(2) .dock-media-card{background:#ebe8e2 url('./assets/official/l50-dock-mop-wash-poster.jpg') center/cover no-repeat!important}
+.dock-control{opacity:0;transform:translateY(44px);transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1);will-change:opacity,transform}
+.dock-control.is-visible{opacity:1;transform:translateY(0)}
+.days-stage{background-color:#171a22!important;background-image:url('./assets/official/l50-120-days-water-management.jpg')!important;background-position:right center!important;background-size:auto 100%!important}
+.days-counter{position:absolute;left:10%;top:50%;transform:translateY(-50%);display:flex;align-items:baseline;gap:12px;text-shadow:0 3px 24px rgba(0,0,0,.55)}
+
+@media (prefers-reduced-motion:reduce){
+  html,body{scroll-behavior:auto}
+  .dock-control{opacity:1;transform:none;transition:none}
+}
 
 @media (max-width:1100px){
   .amazon-header-inner{padding-left:40px!important;padding-right:40px!important;gap:16px!important}
@@ -98,20 +129,27 @@ img,svg{max-width:100%}
   .dock-control{width:calc(100% - 40px)!important}
   #powerdock{padding-bottom:90px!important}
   .sticky-product-stage{height:145vh!important}
-  .sticky-product-image{height:100svh!important}
-  .product-copy{height:145vh!important;margin-top:-100svh!important;padding:82svh 20px 0!important}
+  .sticky-product-image{height:100svh!important;background-size:cover!important;background-position:58% top!important}
+  .product-copy{height:145vh!important;margin-top:-100svh!important;padding:68svh 20px 0!important}
+  .product-copy-inner{gap:24px!important}
   .product-copy h2{font-size:42px!important}
   .product-pills{flex-wrap:wrap!important;justify-content:center!important}
+  .product-pills span{font-size:10px!important;padding:9px 13px!important;letter-spacing:.85px!important}
   .product-container{padding-left:20px!important;padding-right:20px!important;margin-top:72px!important}
   .days-card{height:420px!important}
-  .action-video{height:360px!important}
+  .action-video{height:220px!important}
+  .action-video video{object-fit:contain!important;background:#070709}
   .video-tabs{width:100%;gap:28px!important;overflow-x:auto;justify-content:flex-start;padding-bottom:4px;scrollbar-width:none}
   .video-tabs::-webkit-scrollbar{display:none}
   .video-tabs>div{min-width:150px;flex:0 0 auto}
   .video-progress{width:100%!important}
   .works-row{gap:36px!important;flex-wrap:wrap;justify-content:center}
   .days-sticky{padding-left:20px!important;padding-right:20px!important}
-  .days-stage{height:56vh!important}
+  .days-stage{height:56vh!important;background-image:url('./assets/official/l50-120-days-water-management.jpg')!important;background-position:center center!important;background-size:cover!important}
+  .days-overlay{background:linear-gradient(180deg,rgba(0,0,0,.36) 0%,rgba(0,0,0,.04) 54%,rgba(0,0,0,.12) 100%)!important}
+  .days-counter{left:50%!important;top:19%!important;transform:translate(-50%,-50%)!important;white-space:nowrap}
+  .days-counter span:first-child{font-size:82px!important}
+  .days-counter span:last-child{font-size:24px!important}
   #cleaning{padding-top:84px!important}
   .cleaning-stats{flex-direction:column!important;gap:24px!important}
   .cleaning-stats>div[style*="width:1px"]{width:80px!important;height:1px!important}
@@ -120,7 +158,7 @@ img,svg{max-width:100%}
   .intelligence-stage{height:850px!important;border-radius:20px!important}
   .intelligence-cards{left:20px!important;right:auto!important;top:20px!important;width:calc(100% - 40px)!important;max-width:320px!important}
   .intelligence-copy{left:20px!important;right:20px!important;bottom:26px!important;width:auto!important;align-items:flex-start!important;text-align:left!important}
-  .ace-background{height:700px!important}
+  .ace-background{height:700px!important;background-position:70% center!important}
   .ace-grid{width:calc(100% - 40px)!important}
   .ace-copy{width:100%!important;right:0!important;align-items:center!important;text-align:center!important;gap:30px!important}
   .ace-copy h3{font-size:36px!important}
@@ -305,8 +343,8 @@ img,svg{max-width:100%}
 
 <section data-screen-label="Dock Media" style="background:#fff;padding:0 80px 96px">
   <div style="max-width:1280px;margin:0 auto;display:flex;flex-direction:column;gap:24px">
-    <div class="dock-media-main" style="position:relative;height:615px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:#242427 url('./assets/official/dock-main.webp') center/cover no-repeat;overflow:hidden">
-      <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.04) 45%,rgba(0,0,0,.7) 100%)"></div>
+    <div class="dock-media-main" style="position:relative;height:615px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:#101010 url('./assets/official/l50-hyperstream-duobrush-premium.png') center/cover no-repeat;overflow:hidden">
+      <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.02) 42%,rgba(0,0,0,.82) 100%)"></div>
       <div class="dock-stat-left" style="position:absolute;left:48px;bottom:44px;display:flex;align-items:center;gap:16px">
         <svg width="40" height="40" viewBox="0 0 40 40" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round"><circle cx="20" cy="20" r="14"></circle><path d="M20 20c0-6 5-8 9-6M20 20c6 0 8 5 6 9M20 20c0 6-5 8-9 6M20 20c-6 0-8-5-6-9"></path></svg>
         <span style="font:400 17px/1.4 Inter,sans-serif;color:#fff">19,500Pa*<br>Vormax™ Suction</span>
@@ -331,12 +369,13 @@ img,svg{max-width:100%}
         <p style="margin:0;font:700 20px Inter,sans-serif;color:#1d1d1f;text-align:center">One press dust collection.</p>
       </div>
       <div style="display:flex;flex-direction:column;gap:26px">
-        <div class="dock-media-card" style="position:relative;height:460px;display:flex;align-items:center;justify-content:center;background:#343436 url('./assets/official/dock-mops.webp') center/cover no-repeat;border-radius:12px;overflow:hidden">
-          <div style="display:flex;align-items:center;justify-content:center">
-            <div style="width:48px;height:48px;border-radius:50%;background:rgba(20,20,22,.75);display:flex;align-items:center;justify-content:center"><span style="color:#fff;font-size:15px;margin-left:3px">▶</span></div>
-          </div>
+        <div class="dock-media-card" style="position:relative;height:460px;display:flex;align-items:center;justify-content:center;background:#ebe8e2;border-radius:12px;overflow:hidden">
+          <video ref="{{ dockVideoRef }}" autoplay muted loop playsinline preload="metadata" poster="./assets/official/l50-dock-mop-wash-poster.jpg" aria-label="PowerDock washing and maintaining the mop pads" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+            <source src="./assets/official/l50-dock-mop-wash.mp4" type="video/mp4">
+          </video>
+          <div style="position:absolute;left:18px;top:18px;padding:8px 11px;border:1px solid rgba(255,255,255,.5);border-radius:99px;background:rgba(31,32,34,.64);font:600 10px Manrope,sans-serif;color:#fff;letter-spacing:1px;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)">POWERDOCK · LIVE</div>
         </div>
-        <p style="margin:0;font:700 20px Inter,sans-serif;color:#1d1d1f;text-align:center">3.2L dust bag for 100-day collection.</p>
+        <p style="margin:0;font:700 20px Inter,sans-serif;color:#1d1d1f;text-align:center">Automatic mop washing with 167°F hot water.</p>
       </div>
     </div>
   </div>
@@ -344,17 +383,17 @@ img,svg{max-width:100%}
 
 <div data-screen-label="Product Details" id="powerdock" style="background:#0c0c0d;padding-bottom:130px">
   <div class="sticky-product-stage" style="position:relative;height:170vh">
-    <div class="sticky-product-image" style="position:sticky;top:0;height:100vh;display:flex;align-items:center;justify-content:center;background:#0c0c0d url('./assets/official/product-and-dock.webp') center/contain no-repeat;overflow:hidden">
-      <div style="position:absolute;inset:0;background:linear-gradient(180deg,#0c0c0d 0%,rgba(12,12,13,0) 30%,rgba(12,12,13,0) 60%,#0c0c0d 100%)"></div>
+    <div class="sticky-product-image" style="position:sticky;top:0;height:100vh;display:flex;align-items:center;justify-content:center;background:#05070a url('./assets/official/l50-ai-navigation-premium.png') center top/contain no-repeat;overflow:hidden">
+      <div style="position:absolute;inset:0;background:rgba(2,4,7,.12)"></div>
     </div>
-    <div class="product-copy" style="position:relative;z-index:1;height:170vh;margin-top:-100vh;padding:92vh 80px 0;box-sizing:border-box;pointer-events:none">
-      <div style="max-width:1280px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:34px;text-align:center">
-        <span style="font:500 14px ui-monospace,Menlo,monospace;color:#c79f6c;letter-spacing:1px">[ Product Details ]</span>
-        <h2 style="margin:0;font:700 64px/1.08 'Space Grotesk',Inter,sans-serif;color:#efe9dd;max-width:900px;text-wrap:balance">Unlimited Cleaning Possibilities</h2>
-        <div class="product-pills" style="display:flex;gap:12px">
-          <span style="font:600 12px Inter,sans-serif;letter-spacing:1px;color:#c79f6c;border:1px solid #4a463d;border-radius:99px;padding:8px 18px">19,500PA</span>
-          <span style="font:600 12px Inter,sans-serif;letter-spacing:1px;color:#c79f6c;border:1px solid #4a463d;border-radius:99px;padding:8px 18px">ROBOT VACUUM &amp; MOP</span>
-          <span style="font:600 12px Inter,sans-serif;letter-spacing:1px;color:#c79f6c;border:1px solid #4a463d;border-radius:99px;padding:8px 18px">100 DAYS</span>
+    <div class="product-copy" style="position:relative;z-index:1;height:170vh;margin-top:-100vh;padding:65vh 80px 0;box-sizing:border-box;pointer-events:none">
+      <div class="product-copy-inner" style="max-width:1280px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:30px;text-align:center">
+        <span style="font:600 13px ui-monospace,Menlo,monospace;color:#d8af78;letter-spacing:1.4px;text-shadow:0 2px 16px rgba(0,0,0,.65)">[ Product Details ]</span>
+        <h2 style="margin:0;font:700 64px/1.04 'Space Grotesk',Inter,sans-serif;color:#f8f5ef;max-width:940px;text-wrap:balance;text-shadow:0 3px 28px rgba(0,0,0,.78)">Unlimited Cleaning Possibilities</h2>
+        <div class="product-pills" style="display:flex;gap:10px">
+          <span style="font:650 11px Inter,sans-serif;letter-spacing:1px;color:#f8f5ef;background:rgba(5,7,10,.78);border:1px solid rgba(255,255,255,.28);border-radius:99px;padding:10px 17px;box-shadow:0 8px 24px rgba(0,0,0,.22);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)">19,500Pa SUCTION</span>
+          <span style="font:650 11px Inter,sans-serif;letter-spacing:1px;color:#f8f5ef;background:rgba(5,7,10,.78);border:1px solid rgba(255,255,255,.28);border-radius:99px;padding:10px 17px;box-shadow:0 8px 24px rgba(0,0,0,.22);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)">VACUUM + MOP</span>
+          <span style="font:650 11px Inter,sans-serif;letter-spacing:1px;color:#f8f5ef;background:rgba(5,7,10,.78);border:1px solid rgba(255,255,255,.28);border-radius:99px;padding:10px 17px;box-shadow:0 8px 24px rgba(0,0,0,.22);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)">UP TO 100 DAYS</span>
         </div>
       </div>
     </div>
@@ -372,7 +411,10 @@ img,svg{max-width:100%}
       <h3 style="margin:0;font:700 40px/1.15 'Space Grotesk',Inter,sans-serif;color:#fff">See It in Action</h3>
     </div>
     <div class="action-video" style="{{ videoMediaStyle }}">
-      <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.05),rgba(0,0,0,.35))"></div>
+      <video ref="{{ productVideoRef }}" autoplay muted loop playsinline preload="metadata" poster="./assets/official/l50-feature-overview-poster.jpg" aria-label="Dreame L50 Ultra feature overview" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+        <source src="./assets/official/l50-feature-overview.mp4" type="video/mp4">
+      </video>
+      <div style="position:absolute;left:20px;top:20px;padding:8px 12px;border:1px solid rgba(255,255,255,.18);border-radius:99px;background:rgba(10,10,12,.62);font:600 10px Manrope,sans-serif;color:#fff;letter-spacing:1px;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)">FEATURE FILM · 00:30</div>
     </div>
     <div style="display:flex;flex-direction:column;gap:36px;align-items:center">
       <div class="video-tabs" style="display:flex;gap:56px">
@@ -422,8 +464,8 @@ img,svg{max-width:100%}
 <div data-screen-label="Days Counter" ref="{{ daysRef }}" style="background:#fff;height:260vh;position:relative">
   <div class="days-sticky" style="position:sticky;top:0;height:100vh;padding:0 80px;box-sizing:border-box;display:flex;align-items:center;justify-content:center;overflow:hidden">
     <div class="days-stage" style="{{ daysImgStyle }}">
-      <div style="position:absolute;inset:0;background:rgba(0,0,0,.24)"></div>
-      <div style="display:flex;align-items:baseline;gap:12px">
+      <div class="days-overlay" style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.64) 0%,rgba(0,0,0,.34) 38%,rgba(0,0,0,.08) 72%)"></div>
+      <div class="days-counter">
         <span style="font:800 130px/1 Inter,sans-serif;color:#fff">{{ daysCount }}</span>
         <span style="font:700 34px Inter,sans-serif;color:#fff">Days</span>
       </div>
@@ -467,7 +509,7 @@ img,svg{max-width:100%}
 </section>
 
 <div data-screen-label="Precision Cleaning" style="background:#000;padding:0 0 130px">
-  <div class="ace-background" style="position:relative;width:100%;height:806px;overflow:hidden;background:#111 url('./assets/official/dock-system.webp') center/cover no-repeat">
+  <div class="ace-background" style="position:relative;width:100%;height:806px;overflow:hidden;background:#111 url('./assets/official/l50-days-lifestyle-desktop.jpg') right center/cover no-repeat">
     <div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.08) 0%,rgba(0,0,0,.35) 48%,rgba(0,0,0,.84) 100%)"></div>
     <div class="ace-grid" style="position:relative;width:calc(100% - 160px);max-width:1280px;height:100%;margin:0 auto">
       <div class="ace-copy" style="position:absolute;right:0;top:50%;transform:translateY(-50%);width:54%;display:flex;flex-direction:column;align-items:flex-end;gap:38px;text-align:right">
@@ -665,6 +707,8 @@ img,svg{max-width:100%}
 class Component extends DCLogic {
   state = { model: 0, modelOpen: false, video: 0, pet: 1, slide: 0, acc: 2, sticky: false, daysP: 0, navTop: 60, navVisible: true };
   daysEl = React.createRef();
+  productVideoEl = React.createRef();
+  dockVideoEl = React.createRef();
   componentDidMount() {
     this._onScroll = () => {
       const scrollTop = window.scrollY || document.documentElement.scrollTop || document.body.scrollTop || 0;
@@ -701,6 +745,69 @@ class Component extends DCLogic {
     window.addEventListener('resize', this._scheduleScroll, { passive: true });
     document.addEventListener('scroll', this._scheduleScroll, { passive: true, capture: true });
     if (document.body) document.body.addEventListener('scroll', this._scheduleScroll, { passive: true });
+    this._navClickHandlers = [];
+    document.querySelectorAll('.main-nav a[href^="#"]').forEach((link) => {
+      const handler = (event) => {
+        const target = document.querySelector(link.getAttribute('href'));
+        if (!target) return;
+        event.preventDefault();
+        if (this._navScrollFrame) window.cancelAnimationFrame(this._navScrollFrame);
+        const scrollingEl = document.scrollingElement || document.documentElement || document.body;
+        const start = window.scrollY || document.documentElement.scrollTop || document.body.scrollTop || 0;
+        const destination = Math.max(0, start + target.getBoundingClientRect().top - 68);
+        const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const duration = reduceMotion ? 0 : 720;
+        const startedAt = performance.now();
+        const setScroll = (value) => {
+          if (scrollingEl) scrollingEl.scrollTop = value;
+          document.documentElement.scrollTop = value;
+          document.body.scrollTop = value;
+        };
+        const animate = (now) => {
+          const progress = duration === 0 ? 1 : Math.min(1, (now - startedAt) / duration);
+          const eased = 1 - Math.pow(1 - progress, 3);
+          setScroll(start + (destination - start) * eased);
+          if (progress < 1) this._navScrollFrame = window.requestAnimationFrame(animate);
+          else {
+            this._navScrollFrame = null;
+            if (history.replaceState) history.replaceState(null, '', link.getAttribute('href'));
+          }
+        };
+        this._navScrollFrame = window.requestAnimationFrame(animate);
+      };
+      link.addEventListener('click', handler);
+      this._navClickHandlers.push({ link, handler });
+    });
+    const featureVideo = this.productVideoEl.current;
+    if (featureVideo) {
+      featureVideo.muted = true;
+      featureVideo.loop = true;
+      featureVideo.playsInline = true;
+      featureVideo.load();
+      const playback = featureVideo.play();
+      if (playback && playback.catch) playback.catch(() => {});
+    }
+    const dockVideo = this.dockVideoEl.current;
+    if (dockVideo) {
+      dockVideo.muted = true;
+      dockVideo.loop = true;
+      dockVideo.playsInline = true;
+      dockVideo.load();
+      const playback = dockVideo.play();
+      if (playback && playback.catch) playback.catch(() => {});
+    }
+    const dockControl = document.querySelector('.dock-control');
+    if (dockControl && 'IntersectionObserver' in window) {
+      this._dockControlObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            this._dockControlObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.45, rootMargin: '0px 0px -8% 0px' });
+      this._dockControlObserver.observe(dockControl);
+    } else if (dockControl) dockControl.classList.add('is-visible');
     this._onScroll();
   }
   componentWillUnmount() {
@@ -709,6 +816,11 @@ class Component extends DCLogic {
     document.removeEventListener('scroll', this._scheduleScroll, true);
     if (document.body) document.body.removeEventListener('scroll', this._scheduleScroll);
     if (this._scrollFrame) window.cancelAnimationFrame(this._scrollFrame);
+    if (this._navScrollFrame) window.cancelAnimationFrame(this._navScrollFrame);
+    if (this.productVideoEl.current) this.productVideoEl.current.pause();
+    if (this.dockVideoEl.current) this.dockVideoEl.current.pause();
+    if (this._dockControlObserver) this._dockControlObserver.disconnect();
+    (this._navClickHandlers || []).forEach(({ link, handler }) => link.removeEventListener('click', handler));
   }
   renderVals() {
     const st = this.state;
@@ -728,13 +840,25 @@ class Component extends DCLogic {
       }
     }));
     const videos = [
-      { label: 'Threshold Climbing', image: './assets/official/threshold.webp', desc: 'Driven by the ProLeap™ system and its retractable legs, L50 Ultra climbs obstacles up to 2.36in* high and single vertical steps up to 1.65in*, with a shock-absorbing design rated for 30,000 cleaning cycles.' },
-      { label: 'Anti-Tangle DuoBrush', image: './assets/official/duobrush.webp', desc: 'HyperStream™ Detangling DuoBrush handles hair up to 11.81in* long. Strong suction and its innovative air duct design capture hair while preventing tangles, ensuring a calm, low-noise cleaning experience.' },
-      { label: 'Dual Flex Arm Reach', image: './assets/official/flex-arm.webp', desc: 'Extendable side brush and mop reach tight corners, narrow gaps, and areas under low-profile furniture, ensuring a 100%* clean of hidden debris.' }
+      { label: 'Threshold Climbing', time: 0, desc: 'Driven by the ProLeap™ system and its retractable legs, L50 Ultra climbs obstacles up to 2.36in* high and single vertical steps up to 1.65in*, with a shock-absorbing design rated for 30,000 cleaning cycles.' },
+      { label: 'Anti-Tangle DuoBrush', time: 10, desc: 'HyperStream™ Detangling DuoBrush handles hair up to 11.81in* long. Strong suction and its innovative air duct design capture hair while preventing tangles, ensuring a calm, low-noise cleaning experience.' },
+      { label: 'Dual Flex Arm Reach', time: 20, desc: 'Extendable side brush and mop reach tight corners, narrow gaps, and areas under low-profile furniture, ensuring a 100%* clean of hidden debris.' }
     ];
     const videoTabs = videos.map((v, i) => ({
       label: v.label,
-      on: () => this.setState({ video: i }),
+      on: () => {
+        this.setState({ video: i });
+        window.requestAnimationFrame(() => {
+          const media = this.productVideoEl.current;
+          if (media) {
+            media.muted = true;
+            media.loop = true;
+            media.currentTime = v.time;
+            const playback = media.play();
+            if (playback && playback.catch) playback.catch(() => {});
+          }
+        });
+      },
       style: {
         font: (i === st.video ? '600' : '400') + ' 17px Inter,sans-serif',
         color: i === st.video ? '#fff' : '#77777c',
@@ -770,15 +894,15 @@ class Component extends DCLogic {
     const slides = [
       { title: '2.36in Double-Layer Threshold', image: './assets/official/threshold.webp' },
       { title: '1.65in Single Vertical Step', image: './assets/official/flex-arm.webp' },
-      { title: 'Door Tracks & Uneven Floors', image: './assets/official/carpet-cleaning.webp' }
+      { title: 'Door Tracks & Uneven Floors', image: './assets/official/l50-threshold-profile.jpg' }
     ];
     const cards = [
-      { title: 'Matter Compatible', image: './assets/official/matter.webp', desc: 'Synchronized connectivity across all smart home devices with Matter protocol compatibility*. Control cleaning with a single app or voice assistant.' },
-      { title: 'Custom Carpet Strategies', image: './assets/official/carpet-cleaning.webp', desc: 'Choose mop removal, mop lifting, carpet avoidance, intensive cleaning or suction boost, tailored per carpet in the Dreamehome App.' },
+      { title: 'Matter Compatible', image: './assets/generated/l50-matter-connected-home.jpg', position: '58% center', desc: 'Synchronized connectivity across all smart home devices with Matter protocol compatibility*. Control cleaning with a single app or voice assistant.' },
+      { title: 'Custom Carpet Strategies', image: './assets/official/l50-carpet-coverage.jpg', desc: 'Choose mop removal, mop lifting, carpet avoidance, intensive cleaning or suction boost, tailored per carpet in the Dreamehome App.' },
       { title: 'Pet-Finding Mode', image: './assets/official/pet-find.webp', desc: 'Find your pet, capture a photo, and connect through real-time video and two-way voice in the Dreamehome App.' },
-      { title: 'Voice Control', image: './assets/official/app-control.webp', desc: 'Intuitive compatibility with Alexa, Siri, and Google Home* voice assistants for smooth, uninterrupted hands-free control.' },
-      { title: 'Instant Sync with Apple Watch', image: './assets/official/apple-watch.webp', desc: 'Start, pause, or resume cleaning quickly from your Apple Watch.' },
-      { title: 'Long-Lasting Battery Life', image: './assets/official/home-map.webp', desc: 'A 6,400mAh battery delivers up to 200 minutes* of cleaning and covers up to 2,002ft²* on a single charge, with 30% faster charging.' }
+      { title: 'Voice Control', image: './assets/generated/l50-voice-control.jpg', position: '70% center', desc: 'Intuitive compatibility with Alexa, Siri, and Google Home* voice assistants for smooth, uninterrupted hands-free control.' },
+      { title: 'Instant Sync with Apple Watch', image: './assets/generated/l50-apple-watch-control.jpg', position: '78% center', desc: 'Start, pause, or resume cleaning quickly from your Apple Watch.' },
+      { title: 'Long-Lasting Battery Life', image: './assets/generated/l50-internal-battery-cutaway.jpg', position: '64% center', desc: 'A 6,400mAh battery delivers up to 200 minutes* of cleaning and covers up to 2,002ft²* on a single charge, with 30% faster charging.' }
     ];
     const accCards = cards.map((c, i) => ({
       title: c.title,
@@ -808,14 +932,17 @@ class Component extends DCLogic {
       }
     }));
     const activeCard = cards[st.acc] || cards[0];
-    const dp = st.daysP;
+    const exportMode = typeof window !== 'undefined' && new URLSearchParams(window.location.search).get('figma') === '1';
+    const dp = exportMode ? 1 : st.daysP;
     return {
       daysRef: this.daysEl,
+      productVideoRef: this.productVideoEl,
+      dockVideoRef: this.dockVideoEl,
       daysCount: Math.round(dp * 120),
       daysImgStyle: {
         position: 'relative', width: '100%', maxWidth: '1280px', height: 'calc(100vh - 80px)', maxHeight: '720px', borderRadius: '16px',
         display: 'flex', alignItems: 'center', justifyContent: 'center',
-        background: "#252528 url('./assets/official/dock-system.webp') center/cover no-repeat",
+        background: "#171a22 url('./assets/official/l50-120-days-water-management.jpg') right center/auto 100% no-repeat",
         overflow: 'hidden',
         transform: 'scale(' + (0.68 + 0.32 * dp) + ')', transformOrigin: 'center center'
       },
@@ -852,12 +979,12 @@ class Component extends DCLogic {
       accStageStyle: {
         maxWidth: '1280px', height: '760px', margin: '0 auto', position: 'relative',
         overflow: 'hidden', borderRadius: '28px', backgroundColor: '#202124',
-        backgroundImage: "url('" + activeCard.image + "')", backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat',
+        backgroundImage: "url('" + activeCard.image + "')", backgroundSize: 'cover', backgroundPosition: activeCard.position || 'center', backgroundRepeat: 'no-repeat',
         boxShadow: '0 24px 70px rgba(25,25,25,.14)'
       },
       videoMediaStyle: {
         position: 'relative', height: '560px', borderRadius: '16px', display: 'flex', alignItems: 'center', justifyContent: 'center',
-        background: "#1d1d20 url('" + videos[st.video].image + "') center/cover no-repeat", overflow: 'hidden'
+        background: '#1d1d20', overflow: 'hidden', boxShadow: '0 24px 70px rgba(0,0,0,.24)'
       },
       videoDesc: videos[st.video].desc,
       petMediaStyle: {
