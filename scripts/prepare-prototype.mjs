@@ -13,7 +13,7 @@ await copyFile(
 );
 await copyFile(join(sourceDir, "support.js"), join(publicDir, "support.js"));
 
-for (const directory of ["assets", "refs", "uploads"]) {
+for (const directory of ["assets"]) {
   await cp(join(sourceDir, directory), join(publicDir, directory), {
     recursive: true,
     force: true,
