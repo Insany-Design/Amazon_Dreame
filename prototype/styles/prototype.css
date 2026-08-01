@@ -20,6 +20,7 @@ img,svg{max-width:100%}
 .figma-export .sticky-buy-bar{display:none!important}
 .figma-export #powerdock .sticky-product-stage{height:900px!important}
 .figma-export #powerdock .sticky-product-image{position:absolute!important;inset:0!important;height:900px!important}
+.figma-export #powerdock .sticky-product-visual{transform:none!important}
 .figma-export #powerdock .product-copy{height:900px!important;margin-top:0!important;padding:330px 80px 0!important}
 .figma-export [data-screen-label="Days Counter"]{height:900px!important}
 .figma-export .days-sticky{position:relative!important;top:auto!important;height:900px!important}
@@ -38,6 +39,7 @@ img,svg{max-width:100%}
 .hero-buy:hover,.sticky-buy-bar span:last-child:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(199,159,108,.25)}
 .precision-carousel button:hover{transform:scale(1.06)}
 .model-tabs>div:hover,.pet-tabs>div:hover{transform:translateY(-2px)}
+.sticky-product-visual{transition:transform .08s linear}
 .feature-grid>div{cursor:default}
 .feature-icon{overflow:visible;color:#1d1d1f;stroke:currentColor;transform-origin:center;transition:color .3s ease,transform .35s var(--motion-ease)}
 .feature-grid>div:hover .feature-icon{color:var(--accent);transform:translateY(-3px) scale(1.06)}
@@ -81,6 +83,7 @@ img,svg{max-width:100%}
   .dock-control{opacity:1;transform:none;transition:none}
   .page-progress{display:none}
   .motion-section{opacity:1!important;transform:none!important;transition:none!important}
+  .sticky-product-visual{transform:none!important;transition:none!important}
 }
 
 @media (max-width:1100px){

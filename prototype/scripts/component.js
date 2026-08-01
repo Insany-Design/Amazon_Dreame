@@ -1,6 +1,7 @@
 class Component extends DCLogic {
   state = { model: 0, modelOpen: false, video: 0, pet: 1, slide: 0, acc: 2, sticky: false, daysP: 0, navTop: window.innerWidth <= 767 ? 96 : 60, navVisible: true };
   daysEl = React.createRef();
+  productStageEl = React.createRef();
   productVideoEl = React.createRef();
   dockVideoEl = React.createRef();
   componentDidMount() {
@@ -26,6 +27,13 @@ class Component extends DCLogic {
         const total = Math.max(1, el.offsetHeight - window.innerHeight);
         const p = Math.min(1, Math.max(0, -el.getBoundingClientRect().top / total));
         if (Math.abs(p - this.state.daysP) > 0.003 || (p === 1) !== (this.state.daysP === 1)) nextState.daysP = p;
+      }
+      const productStage = this.productStageEl.current;
+      if (productStage) {
+        const total = Math.max(1, productStage.offsetHeight - window.innerHeight);
+        const progress = Math.min(1, Math.max(0, -productStage.getBoundingClientRect().top / total));
+        const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        productStage.style.setProperty('--product-zoom', reduceMotion ? '1' : (1 + progress * 0.2).toFixed(4));
       }
       if (this._progressEl) {
         const maxScroll = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
@@ -278,6 +286,7 @@ class Component extends DCLogic {
     return {
       daysRef: this.daysEl,
       productVideoRef: this.productVideoEl,
+      productStageRef: this.productStageEl,
       dockVideoRef: this.dockVideoEl,
       daysCount: Math.round(dp * 120),
       daysImgStyle: {

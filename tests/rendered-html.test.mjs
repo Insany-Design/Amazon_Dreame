@@ -43,6 +43,8 @@ test("ships the current prototype and official product photography", async () =>
   assert.match(component, /siteHeaderStyle/);
   assert.match(component, /navVisible/);
   assert.match(component, /exportMode \? 1 : st\.daysP/);
+  assert.match(component, /--product-zoom/);
+  assert.match(component, /productStageRef/);
   assert.match(component, /translateY\(-115%\)/);
   assert.match(component, /backdropFilter: 'blur\(18px\)'/);
   assert.match(component, /motion-section/);
@@ -52,6 +54,7 @@ test("ships the current prototype and official product photography", async () =>
   assert.match(styles, /html\.prototype-loading #dc-root\{opacity:0\}/);
   assert.match(prototype, /feature-icon--leap/);
   assert.match(prototype, /feature-icon--dock/);
+  assert.match(prototype, /sticky-product-visual/);
   assert.match(styles, /@keyframes icon-leap/);
   assert.match(styles, /@keyframes icon-dock-pulse/);
   assert.match(styles, /page-progress/);
