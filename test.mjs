@@ -1,6 +1,16 @@
 import assert from "node:assert/strict";
-import { access, readFile } from "node:fs/promises";
+import { access, readFile, readdir } from "node:fs/promises";
 import test from "node:test";
+
+async function listFiles(directory, prefix = "") {
+  const entries = await readdir(directory, { withFileTypes: true });
+  const files = await Promise.all(entries.map(async (entry) => {
+    const relativePath = `${prefix}${entry.name}`;
+    if (!entry.isDirectory()) return [relativePath];
+    return listFiles(new URL(`${entry.name}/`, directory), `${relativePath}/`);
+  }));
+  return files.flat();
+}
 
 async function render(pathname = "/") {
   const workerUrl = new URL("./dist/server/index.js", import.meta.url);
@@ -68,6 +78,14 @@ test("ships separated HTML, CSS, JavaScript and product assets", async () => {
   for (const assetPath of assetReferences) {
     await access(new URL(`assets/${assetPath}`, publicRoot));
   }
+
+  const sourceAssets = (await listFiles(new URL("./assets/", import.meta.url)))
+    .filter((assetPath) => !assetPath.split("/").some((part) => part.startsWith(".")));
+  assert.deepEqual(
+    sourceAssets.sort(),
+    [...assetReferences].sort(),
+    "assets/ deve conter somente arquivos referenciados pela landing page",
+  );
 
   await access(new URL("assets/official/hero-l50.png", publicRoot));
   await access(new URL("assets/official/pet-find.webp", publicRoot));

@@ -41,6 +41,7 @@ next-env.d.ts
 /outputs/
 /work/
 /materiais/
+/Imagens do produto (NÃO EXCLUIR)/
 
 # generated site output (created from the root HTML/CSS/JS source)
 /public/dreame-l50-ultra.html
