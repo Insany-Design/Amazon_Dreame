@@ -38,10 +38,38 @@ img,svg{max-width:100%}
 .hero-buy:hover,.sticky-buy-bar span:last-child:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(199,159,108,.25)}
 .precision-carousel button:hover{transform:scale(1.06)}
 .model-tabs>div:hover,.pet-tabs>div:hover{transform:translateY(-2px)}
+.feature-grid>div{cursor:default}
+.feature-icon{overflow:visible;color:#1d1d1f;stroke:currentColor;transform-origin:center;transition:color .3s ease,transform .35s var(--motion-ease)}
+.feature-grid>div:hover .feature-icon{color:var(--accent);transform:translateY(-3px) scale(1.06)}
+.feature-icon *{transform-box:fill-box}
 @media (prefers-reduced-motion:no-preference){
   .js-motion .motion-section{opacity:0;transform:translateY(30px);transition:opacity .8s var(--motion-ease),transform .9s var(--motion-ease)}
   .js-motion .motion-section.motion-visible{opacity:1;transform:none}
+  #duobrush.motion-visible .feature-icon--leap>path:first-child{stroke-dasharray:72;animation:icon-path-flow 3.4s ease-in-out infinite}
+  #duobrush.motion-visible .feature-icon--leap>rect{animation:icon-leap 3.4s var(--motion-ease) infinite}
+  #duobrush.motion-visible .feature-icon--leap>path:last-child{animation:icon-leap 3.4s var(--motion-ease) infinite}
+  #duobrush.motion-visible .feature-icon--suction>path{transform-origin:50% 50%;animation:icon-suction 2.8s ease-in-out infinite}
+  #duobrush.motion-visible .feature-icon--brush>rect:first-child{animation:icon-brush-top 2.6s ease-in-out infinite}
+  #duobrush.motion-visible .feature-icon--brush>rect:nth-child(2){animation:icon-brush-bottom 2.6s ease-in-out infinite}
+  #duobrush.motion-visible .feature-icon--brush>path{stroke-dasharray:18 5;animation:icon-dash 2.6s linear infinite}
+  #duobrush.motion-visible .feature-icon--arm>path,
+  #duobrush.motion-visible .feature-icon--arm>circle:last-child{transform-origin:0 100%;animation:icon-arm 3.2s ease-in-out infinite}
+  #duobrush.motion-visible .feature-icon--arm>circle:nth-child(2){transform-origin:center;animation:icon-orbit-core 3.2s ease-in-out infinite}
+  #duobrush.motion-visible .feature-icon--dry>path{stroke-dasharray:13 5;animation:icon-heat 2.4s linear infinite}
+  #duobrush.motion-visible .feature-icon--dock>circle{transform-origin:center;animation:icon-dock-pulse 2.7s ease-in-out infinite}
+  #duobrush.motion-visible .feature-icon--dock>path{animation:icon-dock-line 2.7s ease-in-out infinite}
 }
+@keyframes icon-path-flow{0%,100%{stroke-dashoffset:0;opacity:.72}50%{stroke-dashoffset:-22;opacity:1}}
+@keyframes icon-leap{0%,18%,100%{transform:translate(0,0)}42%{transform:translate(9px,-10px)}62%{transform:translate(18px,-20px)}80%{transform:translate(27px,-30px)}}
+@keyframes icon-suction{0%,100%{transform:translateY(-2px) scaleX(1);opacity:.65}50%{transform:translateY(3px) scaleX(.82);opacity:1}}
+@keyframes icon-brush-top{0%,100%{transform:translateX(-2px)}50%{transform:translateX(2px)}}
+@keyframes icon-brush-bottom{0%,100%{transform:translateX(2px)}50%{transform:translateX(-2px)}}
+@keyframes icon-dash{to{stroke-dashoffset:-23}}
+@keyframes icon-arm{0%,100%{transform:rotate(-5deg)}50%{transform:rotate(8deg)}}
+@keyframes icon-orbit-core{0%,100%{transform:scale(.88)}50%{transform:scale(1.18)}}
+@keyframes icon-heat{to{stroke-dashoffset:-18}}
+@keyframes icon-dock-pulse{0%,100%{transform:scale(.82);opacity:.6}50%{transform:scale(1.18);opacity:1}}
+@keyframes icon-dock-line{0%,100%{opacity:.5}50%{opacity:1}}
 .figma-export .motion-section{opacity:1!important;transform:none!important}
 .figma-export .page-progress{display:none!important}
 .days-stage{background-color:#171a22!important;background-image:url('../assets/official/l50-120-days-water-management.jpg')!important;background-position:right center!important;background-size:auto 100%!important}

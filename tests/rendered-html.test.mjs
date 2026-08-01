@@ -50,6 +50,10 @@ test("ships the current prototype and official product photography", async () =>
   assert.match(component, /prototype-loading/);
   assert.match(styles, /x-dc\{display:none!important\}/);
   assert.match(styles, /html\.prototype-loading #dc-root\{opacity:0\}/);
+  assert.match(prototype, /feature-icon--leap/);
+  assert.match(prototype, /feature-icon--dock/);
+  assert.match(styles, /@keyframes icon-leap/);
+  assert.match(styles, /@keyframes icon-dock-pulse/);
   assert.match(styles, /page-progress/);
   assert.match(styles, /prefers-reduced-motion/);
   assert.match(boot, /data-dc-src/);
