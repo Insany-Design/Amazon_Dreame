@@ -1,5 +1,5 @@
 class Component extends DCLogic {
-  state = { model: 0, modelOpen: false, video: 0, pet: 1, slide: 0, acc: 2, sticky: false, daysP: 0, navTop: 60, navVisible: true };
+  state = { model: 0, modelOpen: false, video: 0, pet: 1, slide: 0, acc: 2, sticky: false, daysP: 0, navTop: window.innerWidth <= 767 ? 96 : 60, navVisible: true };
   daysEl = React.createRef();
   productVideoEl = React.createRef();
   dockVideoEl = React.createRef();
@@ -7,7 +7,8 @@ class Component extends DCLogic {
     this._onScroll = () => {
       const scrollTop = window.scrollY || document.documentElement.scrollTop || document.body.scrollTop || 0;
       const s = scrollTop > 720;
-      const amazonHeight = window.innerWidth <= 767 ? 96 : 60;
+      const amazonHeader = document.querySelector('.amazon-header');
+      const amazonHeight = amazonHeader ? amazonHeader.getBoundingClientRect().height : (window.innerWidth <= 767 ? 96 : 60);
       const navTop = Math.max(0, amazonHeight - scrollTop);
       const previousScrollTop = this._lastScrollTop ?? scrollTop;
       const scrollDelta = scrollTop - previousScrollTop;
@@ -125,7 +126,9 @@ class Component extends DCLogic {
       this._dockControlObserver.observe(dockControl);
     } else if (dockControl) dockControl.classList.add('is-visible');
     const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const motionTargets = Array.from(document.querySelectorAll('.sc-host > section, .sc-host > div[data-screen-label], .sc-host > footer'));
+    // Keep fixed and sticky compositions out of transformed containers. A transformed
+    // ancestor changes the containing block of position:fixed elements such as the header.
+    const motionTargets = Array.from(document.querySelectorAll('.sc-host > section, .sc-host > footer'));
     motionTargets.forEach((target) => target.classList.add('motion-section'));
     if (!reduceMotion && 'IntersectionObserver' in window) {
       this._motionObserver = new IntersectionObserver((entries) => {
@@ -144,6 +147,7 @@ class Component extends DCLogic {
       document.body.appendChild(this._progressEl);
     }
     this._onScroll();
+    window.requestAnimationFrame(() => document.documentElement.classList.remove('prototype-loading'));
   }
   componentWillUnmount() {
     window.removeEventListener('scroll', this._scheduleScroll);

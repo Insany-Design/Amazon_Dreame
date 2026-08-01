@@ -23,6 +23,7 @@
 
   start().catch((error) => {
     document.documentElement.classList.remove("js-motion");
+    document.documentElement.classList.remove("prototype-loading");
     console.error("[Dreame L50]", error);
   });
 })();

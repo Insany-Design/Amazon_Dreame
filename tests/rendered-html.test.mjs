@@ -46,9 +46,14 @@ test("ships the current prototype and official product photography", async () =>
   assert.match(component, /translateY\(-115%\)/);
   assert.match(component, /backdropFilter: 'blur\(18px\)'/);
   assert.match(component, /motion-section/);
+  assert.doesNotMatch(component, /\.sc-host > div\[data-screen-label\]/);
+  assert.match(component, /prototype-loading/);
+  assert.match(styles, /x-dc\{display:none!important\}/);
+  assert.match(styles, /html\.prototype-loading #dc-root\{opacity:0\}/);
   assert.match(styles, /page-progress/);
   assert.match(styles, /prefers-reduced-motion/);
   assert.match(boot, /data-dc-src/);
+  assert.match(boot, /prototype-loading/);
   assert.match(prototype, /assets\/official\/hero-l50\.png/);
   assert.match(prototype, /assets\/official\/dock-system\.webp/);
   assert.doesNotMatch(prototype, /showSpecs|\.\/refs\/|\.\/uploads\//);
