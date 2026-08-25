@@ -74,6 +74,7 @@ test("ships separated HTML, CSS, JavaScript and product assets", async () => {
   assert.match(page, /class="hero-backdrop"/);
   assert.match(page, /class="hero-filter"[^>]+rgba\(0,0,0,\.52\)/);
   assert.match(styles, /\.hero-backdrop\{background-position:62% center!important\}/);
+  assert.match(styles, /\.sticky-product-visual\{background-size:cover!important;background-position:center center!important/);
   assert.doesNotMatch(page, /class="days-card"/);
   assert.doesNotMatch(page, /showSpecs|\.\/refs\/|\.\/uploads\//);
 
