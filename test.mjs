@@ -42,6 +42,8 @@ test("ships separated HTML, CSS, JavaScript and product assets", async () => {
   assert.match(page, /interactions\.js/);
   assert.match(page, /app\.js/);
   assert.match(page, /rel="preload"[^>]+hero-l50\.png/);
+  assert.match(page, /font:700 58\.8px\/1\.1[^>]+>Conquer Steps, Clean Without Limits<\/h1>/);
+  assert.match(styles, /\.hero-copy h1\{font-size:39\.9px!important/);
   assert.match(page, /id="critical-render"/);
   assert.match(page, /class="initial-render"/);
   assert.ok(page.indexOf('class="initial-render"') < page.indexOf("<x-dc>"));
