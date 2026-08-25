@@ -72,7 +72,7 @@ test("ships separated HTML, CSS, JavaScript and product assets", async () => {
   assert.doesNotMatch(app, /prototype-loading/);
   assert.match(page, /assets\/official\/hero-l50\.webp/);
   assert.match(page, /class="hero-backdrop"/);
-  assert.match(styles, /\.hero-backdrop\{background-position:78% center!important\}/);
+  assert.match(styles, /\.hero-backdrop\{background-position:62% center!important\}/);
   assert.doesNotMatch(page, /class="days-card"/);
   assert.doesNotMatch(page, /showSpecs|\.\/refs\/|\.\/uploads\//);
 
