@@ -41,7 +41,7 @@ test("ships separated HTML, CSS, JavaScript and product assets", async () => {
   assert.match(page, /styles\.css/);
   assert.match(page, /interactions\.js/);
   assert.match(page, /app\.js/);
-  assert.match(page, /rel="preload"[^>]+hero-l50\.png/);
+  assert.match(page, /rel="preload"[^>]+hero-l50\.webp/);
   assert.match(page, /font:700 58\.8px\/1\.1[^>]+>Conquer Steps, Clean Without Limits<\/h1>/);
   assert.match(styles, /\.hero-copy h1\{font-size:39\.9px!important/);
   assert.match(page, /id="critical-render"/);
@@ -70,7 +70,9 @@ test("ships separated HTML, CSS, JavaScript and product assets", async () => {
   assert.match(styles, /prefers-reduced-motion/);
   assert.match(app, /data-dc-src/);
   assert.doesNotMatch(app, /prototype-loading/);
-  assert.match(page, /assets\/official\/hero-l50\.png/);
+  assert.match(page, /assets\/official\/hero-l50\.webp/);
+  assert.match(page, /class="hero-backdrop"/);
+  assert.match(styles, /\.hero-backdrop\{background-position:78% center!important\}/);
   assert.doesNotMatch(page, /class="days-card"/);
   assert.doesNotMatch(page, /showSpecs|\.\/refs\/|\.\/uploads\//);
 
@@ -92,7 +94,7 @@ test("ships separated HTML, CSS, JavaScript and product assets", async () => {
     "assets/ deve conter somente arquivos referenciados pela landing page",
   );
 
-  await access(new URL("assets/official/hero-l50.png", publicRoot));
+  await access(new URL("assets/official/hero-l50.webp", publicRoot));
   await access(new URL("assets/official/pet-find.webp", publicRoot));
   await access(new URL("dc-runtime.js", publicRoot));
 });
