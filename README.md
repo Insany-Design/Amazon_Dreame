@@ -38,3 +38,11 @@ npm run dev
 ```bash
 npm test
 ```
+
+## Licença
+
+O código-fonte deste projeto é disponibilizado sob a [licença MIT](LICENSE).
+
+Imagens, vídeos, logotipos, nomes de produtos e demais materiais de terceiros
+não são abrangidos pela licença MIT e permanecem sujeitos aos direitos de seus
+respectivos titulares, incluindo Amazon e Dreame.
